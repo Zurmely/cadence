@@ -14,12 +14,13 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { RecordTransfer } from "@/components/record-transfer";
 import { useRecords } from "@/hooks/use-records";
 import { formatDate, newRecord, type HealthRecord } from "@/lib/types";
 
 export default function DoctorPage() {
   const router = useRouter();
-  const { state, upsert, remove, saveError } = useRecords();
+  const { state, upsert, remove, importRecords, saveError } = useRecords();
   const [pendingDelete, setPendingDelete] = useState<HealthRecord | null>(null);
 
   const addPatient = () => {
@@ -128,6 +129,14 @@ export default function DoctorPage() {
             );
           })}
         </ul>
+      )}
+
+      {state.status === "ready" && (
+        <RecordTransfer
+          records={state.records}
+          onImport={importRecords}
+          scopeLabel="all Medical IDs and medication schedules"
+        />
       )}
 
       <Dialog open={!!pendingDelete} onOpenChange={(o) => !o && setPendingDelete(null)}>

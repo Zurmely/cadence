@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { loadRecords, saveRecords, StorageError } from "@/lib/storage";
+import { mergeRecords } from "@/lib/record-transfer";
 import { newRecord, SELF_RECORD_ID, type HealthRecord } from "@/lib/types";
 
 export type RecordsState =
@@ -60,7 +61,15 @@ export function useRecords() {
 
   const resetAll = useCallback(() => persist([]), [persist]);
 
-  return { state, saveError, upsert, remove, resetAll };
+  const importRecords = useCallback(
+    (records: HealthRecord[]) => {
+      if (state.status !== "ready") return;
+      persist(mergeRecords(state.records, records));
+    },
+    [state, persist]
+  );
+
+  return { state, saveError, upsert, remove, resetAll, importRecords };
 }
 
 /** Loads one record, creating it in memory if missing. Autosaves with a short debounce. */

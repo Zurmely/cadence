@@ -22,7 +22,7 @@ export function SheetPage({
   const { w, h } = SHEET_SIZES[format];
   return (
     <section
-      className={`print-doc print-page bg-white text-black ${className}`}
+      className={`pdf-page print-doc print-page bg-white text-black ${className}`}
       style={{
         width: `${w}mm`,
         minHeight: `${h}mm`,

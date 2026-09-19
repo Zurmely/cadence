@@ -28,8 +28,8 @@ const FEATURES = [
   },
   {
     icon: Printer,
-    title: "Print or save as PDF",
-    text: "One button opens your browser's print dialog. Choose “Save as PDF” to keep a copy.",
+    title: "Print or download a PDF",
+    text: "Download a ready-to-share PDF directly, or use your browser's print dialog.",
   },
 ];
 
