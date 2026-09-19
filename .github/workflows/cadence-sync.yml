@@ -1,0 +1,31 @@
+name: One-shot Cadence tree sync
+
+on:
+  push:
+    branches:
+      - cursor/cadence-medical-id-ebc1
+    paths:
+      - .github/workflows/cadence-sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: cursor/cadence-medical-id-ebc1
+          fetch-depth: 0
+      - name: Replace branch tree with exact local-origin tree
+        shell: bash
+        run: |
+          git remote add cursor-origin https://origin.cursor.com/git/gzurmely/tmp-d32446053cc3cd20.git
+          git fetch cursor-origin cursor/cadence-medical-id-ebc1
+          test "$(git rev-parse FETCH_HEAD)" = "c9bf4c8c7d824bb42aa6d353e57de9b0799913f7"
+          git read-tree --reset -u FETCH_HEAD
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync PDF, record transfer, tests, and lockfile"
+          git push origin HEAD:cursor/cadence-medical-id-ebc1
