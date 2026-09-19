@@ -10,6 +10,7 @@ import { MedicalIdForm } from "@/components/medical-id/medical-id-form";
 import { WalletCardBack, WalletCardFront } from "@/components/medical-id/wallet-card";
 import { CadenceForm } from "@/components/cadence/medication-form";
 import { CadenceSheet } from "@/components/cadence/cadence-sheet";
+import { RecordTransfer } from "@/components/record-transfer";
 import { useRecord } from "@/hooks/use-records";
 import type { HealthRecord } from "@/lib/types";
 
@@ -156,6 +157,19 @@ export function RecordEditor({ recordId, kind, title, backHref }: Props) {
           </div>
         </TabsContent>
       </Tabs>
+      <RecordTransfer
+        records={[draft]}
+        scopeLabel="this Medical ID and medication schedule"
+        onImport={(records) => {
+          const imported =
+            records.find((record) => record.id === draft.id) ??
+            records.find((record) => record.kind === kind) ??
+            records[0];
+          if (imported) {
+            update(() => ({ ...imported, id: draft.id, kind: draft.kind }));
+          }
+        }}
+      />
     </div>
   );
 }

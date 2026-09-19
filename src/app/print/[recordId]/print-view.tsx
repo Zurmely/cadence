@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AlertTriangle, ArrowLeft, Printer } from "lucide-react";
+import { AlertTriangle, ArrowLeft, Download, Printer } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { CadenceSheet } from "@/components/cadence/cadence-sheet";
@@ -10,6 +10,11 @@ import { FoldCard, FOLD_H, FOLD_W } from "@/components/medical-id/fold-card";
 import { MedicalIdSheet, SHEET_SIZES, type SheetFormat } from "@/components/medical-id/id-sheet";
 import { CARD_H, CARD_W, WalletCardBack, WalletCardFront } from "@/components/medical-id/wallet-card";
 import { loadRecords, StorageError } from "@/lib/storage";
+import {
+  downloadElementsAsPdf,
+  pdfFilename,
+  PDF_PAGE_SIZES,
+} from "@/lib/pdf";
 import { SELF_RECORD_ID, type HealthRecord } from "@/lib/types";
 
 type Doc = "id" | "cadence";
@@ -51,6 +56,7 @@ export function PrintView({
     | { status: "error"; message: string }
     | { status: "ready"; record: HealthRecord }
   >({ status: "loading" });
+  const [pdfState, setPdfState] = useState<"idle" | "working" | "error">("idle");
 
   useEffect(() => {
     try {
@@ -88,7 +94,40 @@ export function PrintView({
         >
           <Printer aria-hidden="true" /> Print / Save as PDF
         </Button>
+        <Button
+          size="lg"
+          variant="outline"
+          className="min-h-14 text-lg"
+          disabled={state.status !== "ready" || pdfState === "working"}
+          onClick={async () => {
+            if (state.status !== "ready") return;
+            setPdfState("working");
+            try {
+              await downloadElementsAsPdf(
+                Array.from(document.querySelectorAll<HTMLElement>(".pdf-page")),
+                PDF_PAGE_SIZES[validFormat],
+                pdfFilename(state.record.medicalId.fullName, doc, validFormat)
+              );
+              setPdfState("idle");
+            } catch {
+              setPdfState("error");
+            }
+          }}
+        >
+          <Download aria-hidden="true" />
+          {pdfState === "working" ? "Making PDF…" : "Download PDF"}
+        </Button>
       </div>
+
+      {pdfState === "error" && (
+        <Alert variant="destructive" className="no-print mb-6">
+          <AlertTriangle aria-hidden="true" />
+          <AlertTitle>PDF download failed</AlertTitle>
+          <AlertDescription>
+            Try the Print / Save as PDF button instead. Your record has not been changed.
+          </AlertDescription>
+        </Alert>
+      )}
 
       {state.status === "loading" && (
         <p role="status" className="py-10 text-center text-muted-foreground">
@@ -121,8 +160,8 @@ export function PrintView({
         <>
           <p className="no-print mb-6 max-w-prose rounded-lg bg-secondary p-4">
             <span className="font-bold">Printing tip: </span>
-            {TIPS[validFormat]} In the print dialog, choose “Save as PDF” as the destination to
-            keep a digital copy.
+            {TIPS[validFormat]} Use Download PDF for a file immediately, or choose “Save as
+            PDF” in the print dialog.
           </p>
           <div className="flex flex-col items-start gap-6 overflow-x-auto pb-4">
             <Document record={state.record} doc={doc} format={validFormat} />
@@ -153,10 +192,10 @@ function Document({
   if (format === "wallet") {
     return (
       <>
-        <div className="print-page">
+        <div className="pdf-page print-page">
           <WalletCardFront id={id} />
         </div>
-        <div className="print-page">
+        <div className="pdf-page print-page">
           <WalletCardBack id={id} />
         </div>
       </>
@@ -164,7 +203,7 @@ function Document({
   }
   if (format === "fold") {
     return (
-      <div className="print-page">
+      <div className="pdf-page print-page">
         <FoldCard id={id} />
       </div>
     );
