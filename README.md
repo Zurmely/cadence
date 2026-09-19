@@ -7,8 +7,9 @@ Everything is stored in the browser (`localStorage`). There is no account, datab
 ## What it does
 
 - **My Medical ID** (`/my-id`) — an accessible form (name, date of birth, blood type, allergies, conditions, medications, emergency contacts, doctor, notes) with a live wallet-card preview.
-- **Print / Save as PDF** (`/print/<record>?doc=id&format=…`) — wallet card (CR80, 85.6 × 54 mm, front and back), fold-over card, A4 page, or US Letter page, each with the correct `@page` size. The browser print dialog handles paper output or "Save as PDF".
+- **Print / download PDF** (`/print/<record>?doc=id&format=…`) — wallet card (CR80, 85.6 × 54 mm, front and back), fold-over card, A4 page, or US Letter page, each with the correct `@page` size. Download a PDF directly or keep using the browser print dialog.
 - **Doctor mode** (`/doctor`) — create records for patients and build a **Medication Cadence** page: which medicine to take at which time of day (morning / midday / evening / bedtime with clear icons), dose, with or without food, plain-language instructions, and a large pill drawing (colour, shape, marking, or an uploaded photo). Printable in A4 or Letter; a weekly grid is added automatically when a medicine is not taken every day.
+- **Import / export** — move a complete Medical ID and medication schedule, or all patient records, with a validated Cadence JSON backup.
 - **Accessibility** — 18 px base text with a *Large print* toggle (22 px), a *High contrast* toggle, WCAG AA colours, 44 px+ touch targets, icons paired with text, semantic HTML, labelled controls, keyboard navigation, skip link, and reduced-motion support.
 
 ## Run it locally
@@ -26,6 +27,7 @@ Other scripts:
 npm run build   # production build
 npm run start   # serve the production build on port 4517
 npm run lint    # eslint
+npm test        # Vitest automated test suite
 ```
 
 ## Stack
@@ -42,10 +44,6 @@ src/components/record-editor.tsx  shared editor with tabs, live preview, and pri
 src/hooks/use-records.ts     localStorage-backed records with autosave
 src/lib/types.ts             data model and constants
 src/lib/storage.ts           localStorage read/write with error handling
+src/lib/record-transfer.ts   JSON backup validation and merging
+src/lib/pdf.ts               direct client-side PDF generation
 ```
-
-## Not done yet
-
-- Direct PDF file download (the print dialog's "Save as PDF" is the supported path).
-- Import/export of records between devices.
-- Automated tests.
