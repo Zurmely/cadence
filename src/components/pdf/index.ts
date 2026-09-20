@@ -1,5 +1,5 @@
 /**
- * jsPDF wallet card (Template A) and daily intake (Template B) plug in here.
- * Consume profile + MedicationGlyph; rasterize SVG to PNG for jsPDF.
+ * PDF download UI. See `src/lib/pdf/` for the underlying jsPDF templates
+ * (Template A wallet card, Template B daily intake schedule).
  */
-export {};
+export { DownloadButtons } from './DownloadButtons';
