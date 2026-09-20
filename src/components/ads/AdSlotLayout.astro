@@ -1,0 +1,29 @@
+---
+/**
+ * Two-column responsive layout helper for pages that host a sponsor sidebar.
+ * Desktop (lg+): main content + a fixed-width sidebar column (named `sidebar` slot).
+ * Mobile: single column — the sidebar slot is hidden; pages place an
+ * `inline`-variant SponsorSlot directly in their own content flow instead.
+ *
+ * When `src/content/sponsors.ts` is empty this collapses to a plain single
+ * column with no reserved sidebar space.
+ */
+import { sponsors } from '../../content/sponsors';
+
+const hasSponsors = sponsors.length > 0;
+---
+
+{
+  hasSponsors ? (
+    <div class="lg:grid lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start lg:gap-6">
+      <div class="flex flex-col gap-6">
+        <slot />
+      </div>
+      <aside class="hidden lg:block">
+        <slot name="sidebar" />
+      </aside>
+    </div>
+  ) : (
+    <slot />
+  )
+}
