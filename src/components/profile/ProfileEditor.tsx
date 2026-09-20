@@ -2,7 +2,6 @@ import { useEffect, useId, useState, type ReactNode } from 'react';
 import {
   ALLERGY_SEVERITIES,
   BLOOD_TYPES,
-  MEDICATION_FORMS,
   SCHEDULE_SLOTS,
   SEX_VALUES,
   createEmptyAllergy,
@@ -19,7 +18,9 @@ import { useProfile } from '../../lib/profile/useProfile';
 import { t, type Locale, type MessageKey } from '../../lib/i18n';
 import { useLocale } from '../../lib/i18n/useLocale';
 import { Switch } from '../ui/Switch';
-import { MedicationGlyph } from '../glyph/MedicationGlyph';
+import { GlyphControls } from '../glyph/GlyphControls';
+import { MedicalCombobox } from '../search/MedicalCombobox';
+import { QrShare } from '../share/QrShare';
 
 const ADVANCED_KEY = 'cadence.ui.advanced.v1';
 
@@ -137,6 +138,11 @@ export function ProfileEditor() {
             patch((current) => ({ ...current, notes: event.target.value }))
           }
         />
+      </Section>
+
+      {/* emergency-and-schedule-ui: share this profile via QR/link */}
+      <Section title={t(locale, 'share.title')}>
+        <QrShare profile={profile} path="/emergency" />
       </Section>
 
       <div>
@@ -392,13 +398,16 @@ function ConditionSection({
         <ul className="mb-4 flex flex-col gap-4">
           {profile.conditions.map((item) => (
             <li key={item.id} className="grid gap-3 rounded-md border border-cadence-border p-3 sm:grid-cols-2">
-              <Field label={t(locale, 'profile.conditionName')}>
-                <input
-                  className={inputClass}
-                  value={item.name}
-                  onChange={(event) => update(item.id, { name: event.target.value })}
-                />
-              </Field>
+              <MedicalCombobox
+                label={t(locale, 'profile.conditionName')}
+                dataset="icd10"
+                locale={locale}
+                inputValue={item.name}
+                placeholder={t(locale, 'search.conditionPlaceholder')}
+                hint={t(locale, 'search.hint')}
+                onInputChange={(value) => update(item.id, { name: value })}
+                onSelect={(result) => update(item.id, { name: result.label, icd10: result.value })}
+              />
               {advanced ? (
                 <Field label={t(locale, 'profile.conditionIcd10')}>
                   <input
@@ -485,13 +494,16 @@ function MedicationSection({
           {profile.medications.map((item) => (
             <li key={item.id} className="flex flex-col gap-3 rounded-md border border-cadence-border p-3">
               <div className="grid gap-3 sm:grid-cols-2">
-                <Field label={t(locale, 'profile.medicationName')}>
-                  <input
-                    className={inputClass}
-                    value={item.name}
-                    onChange={(event) => update(item.id, { name: event.target.value })}
-                  />
-                </Field>
+                <MedicalCombobox
+                  label={t(locale, 'profile.medicationName')}
+                  dataset="meds"
+                  locale={locale}
+                  inputValue={item.name}
+                  placeholder={t(locale, 'search.medicationPlaceholder')}
+                  hint={t(locale, 'search.hint')}
+                  onInputChange={(value) => update(item.id, { name: value })}
+                  onSelect={(result) => update(item.id, { name: result.label, code: result.value })}
+                />
                 <Field label={t(locale, 'profile.medicationDose')}>
                   <input
                     className={inputClass}
@@ -528,73 +540,14 @@ function MedicationSection({
                 </div>
               </fieldset>
               {advanced ? (
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                  <div className="flex items-end gap-3">
-                    <MedicationGlyph {...item.glyph} size={48} />
-                    <Field label={t(locale, 'profile.glyphForm')}>
-                      <select
-                        className={inputClass}
-                        value={item.glyph.form}
-                        onChange={(event) =>
-                          update(item.id, {
-                            glyph: {
-                              ...item.glyph,
-                              form: event.target.value as Medication['glyph']['form'],
-                            },
-                          })
-                        }
-                      >
-                        {MEDICATION_FORMS.map((form) => (
-                          <option key={form} value={form}>
-                            {form}
-                          </option>
-                        ))}
-                      </select>
-                    </Field>
-                  </div>
-                  <Field label={t(locale, 'profile.glyphPrimary')}>
-                    <input
-                      className={inputClass}
-                      type="color"
-                      value={item.glyph.primaryColor}
-                      onChange={(event) =>
-                        update(item.id, {
-                          glyph: { ...item.glyph, primaryColor: event.target.value },
-                        })
-                      }
-                    />
-                  </Field>
-                  <Field label={t(locale, 'profile.glyphSecondary')}>
-                    <input
-                      className={inputClass}
-                      type="color"
-                      value={item.glyph.secondaryColor}
-                      onChange={(event) =>
-                        update(item.id, {
-                          glyph: { ...item.glyph, secondaryColor: event.target.value },
-                        })
-                      }
-                    />
-                  </Field>
-                  <Field label={t(locale, 'profile.glyphScoring')}>
-                    <select
-                      className={inputClass}
-                      value={item.glyph.scoring}
-                      onChange={(event) =>
-                        update(item.id, {
-                          glyph: {
-                            ...item.glyph,
-                            scoring: Number(event.target.value) as Medication['glyph']['scoring'],
-                          },
-                        })
-                      }
-                    >
-                      <option value={0}>0</option>
-                      <option value={1}>1</option>
-                      <option value={2}>2</option>
-                      <option value={4}>4</option>
-                    </select>
-                  </Field>
+                <div className="rounded-md border border-cadence-border p-3">
+                  <GlyphControls
+                    value={item.glyph}
+                    locale={locale}
+                    onChange={(glyph) =>
+                      update(item.id, { glyph: glyph as Medication['glyph'] })
+                    }
+                  />
                 </div>
               ) : null}
               <button
