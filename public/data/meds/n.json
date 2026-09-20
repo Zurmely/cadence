@@ -1,5 +1,5 @@
 [
   { "id": "naproxen", "en": "Naproxen", "pt": "Naproxeno", "strengths": ["250 mg", "500 mg"], "forms": ["tablet"] },
-  { "id": "nitrofurantoin", "en": "Nitrofurantoin", "pt": "Nitrofurantóína", "strengths": ["100 mg"], "forms": ["capsule"] },
+  { "id": "nitrofurantoin", "en": "Nitrofurantoin", "pt": "Nitrofurantoína", "strengths": ["100 mg"], "forms": ["capsule"] },
   { "id": "nystatin", "en": "Nystatin", "pt": "Nistatina", "strengths": ["100,000 U/mL"], "forms": ["oral suspension", "topical cream"] }
 ]
