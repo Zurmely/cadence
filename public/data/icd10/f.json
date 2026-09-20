@@ -1,0 +1,11 @@
+[
+  { "code": "F10", "chapter": "V", "en": "Mental and behavioural disorders due to use of alcohol", "pt": "Transtornos mentais e comportamentais devidos ao uso de álcool" },
+  { "code": "F17", "chapter": "V", "en": "Mental and behavioural disorders due to use of tobacco", "pt": "Transtornos mentais e comportamentais devidos ao uso de tabaco" },
+  { "code": "F20", "chapter": "V", "en": "Schizophrenia", "pt": "Esquizofrenia" },
+  { "code": "F32", "chapter": "V", "en": "Depressive episode", "pt": "Episódios depressivos" },
+  { "code": "F33", "chapter": "V", "en": "Recurrent depressive disorder", "pt": "Transtorno depressivo recorrente" },
+  { "code": "F41", "chapter": "V", "en": "Other anxiety disorders", "pt": "Outros transtornos ansiosos" },
+  { "code": "F43", "chapter": "V", "en": "Reaction to severe stress, and adjustment disorders", "pt": "Reações ao \"stress\" grave e transtornos de adaptação" },
+  { "code": "F84", "chapter": "V", "en": "Pervasive developmental disorders", "pt": "Transtornos globais do desenvolvimento" },
+  { "code": "F90", "chapter": "V", "en": "Hyperkinetic disorders", "pt": "Transtornos hipercinéticos" }
+]

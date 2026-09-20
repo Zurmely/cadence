@@ -1,0 +1,9 @@
+[
+  { "code": "G20", "chapter": "VI", "en": "Parkinson disease", "pt": "Doença de Parkinson" },
+  { "code": "G30", "chapter": "VI", "en": "Alzheimer disease", "pt": "Doença de Alzheimer" },
+  { "code": "G40", "chapter": "VI", "en": "Epilepsy", "pt": "Epilepsia" },
+  { "code": "G43", "chapter": "VI", "en": "Migraine", "pt": "Migrânea" },
+  { "code": "G45", "chapter": "VI", "en": "Transient cerebral ischaemic attacks and related syndromes", "pt": "Acidentes vasculares cerebrais isquêmicos transitórios e síndromes correlatas" },
+  { "code": "G47", "chapter": "VI", "en": "Sleep disorders", "pt": "Distúrbios do sono" },
+  { "code": "G62", "chapter": "VI", "en": "Other polyneuropathies", "pt": "Outras polineuropatias" }
+]

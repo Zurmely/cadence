@@ -1,0 +1,9 @@
+[
+  { "code": "N18", "chapter": "XIV", "en": "Chronic kidney disease", "pt": "Doença renal crônica" },
+  { "code": "N20", "chapter": "XIV", "en": "Calculus of kidney and ureter", "pt": "Cálculo do rim e do ureter" },
+  { "code": "N30", "chapter": "XIV", "en": "Cystitis", "pt": "Cistite" },
+  { "code": "N39", "chapter": "XIV", "en": "Other disorders of urinary system", "pt": "Outros transtornos do trato urinário" },
+  { "code": "N40", "chapter": "XIV", "en": "Hyperplasia of prostate", "pt": "Hiperplasia da próstata" },
+  { "code": "N76", "chapter": "XIV", "en": "Other inflammation of vagina and vulva", "pt": "Outras afecções inflamatórias da vagina e da vulva" },
+  { "code": "N92", "chapter": "XIV", "en": "Excessive, frequent and irregular menstruation", "pt": "Menstruação excessiva, frequente e irregular" }
+]

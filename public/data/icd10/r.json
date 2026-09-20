@@ -1,0 +1,11 @@
+[
+  { "code": "R05", "chapter": "XVIII", "en": "Cough", "pt": "Tosse" },
+  { "code": "R06", "chapter": "XVIII", "en": "Abnormalities of breathing", "pt": "Anormalidades da respiração" },
+  { "code": "R10", "chapter": "XVIII", "en": "Abdominal and pelvic pain", "pt": "Dor abdominal e pélvica" },
+  { "code": "R11", "chapter": "XVIII", "en": "Nausea and vomiting", "pt": "Náusea e vômitos" },
+  { "code": "R42", "chapter": "XVIII", "en": "Dizziness and giddiness", "pt": "Tontura e instabilidade" },
+  { "code": "R50", "chapter": "XVIII", "en": "Fever of other and unknown origin", "pt": "Febre de outras origens e a de origem desconhecida" },
+  { "code": "R51", "chapter": "XVIII", "en": "Headache", "pt": "Cefaleia" },
+  { "code": "R53", "chapter": "XVIII", "en": "Malaise and fatigue", "pt": "Mal-estar e fadiga" },
+  { "code": "R55", "chapter": "XVIII", "en": "Syncope and collapse", "pt": "Síncope e colapso" }
+]

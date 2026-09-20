@@ -1,0 +1,9 @@
+[
+  { "code": "H10", "chapter": "VII", "en": "Conjunctivitis", "pt": "Conjuntivite" },
+  { "code": "H25", "chapter": "VII", "en": "Senile cataract", "pt": "Catarata senil" },
+  { "code": "H40", "chapter": "VII", "en": "Glaucoma", "pt": "Glaucoma" },
+  { "code": "H52", "chapter": "VII", "en": "Disorders of refraction and accommodation", "pt": "Transtornos da refração e da acomodação" },
+  { "code": "H61", "chapter": "VIII", "en": "Other disorders of external ear", "pt": "Outros transtornos do ouvido externo" },
+  { "code": "H66", "chapter": "VIII", "en": "Suppurative and unspecified otitis media", "pt": "Otite média supurativa e a não especificada" },
+  { "code": "H81", "chapter": "VIII", "en": "Disorders of vestibular function", "pt": "Transtornos da função vestibular" }
+]
