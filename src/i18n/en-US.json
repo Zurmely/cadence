@@ -12,7 +12,7 @@
     "print": "Print",
     "language": "Language",
     "languageEn": "English",
-    "languagePt": "Português"
+    "languagePt": "Portugu\u00eas"
   },
   "footer": {
     "privacy": "Cadence never sends your health data to a server. Everything lives in this browser and, if you choose, in a URL hash you control.",
@@ -97,17 +97,27 @@
     "lead": "Medications grouped by morning, afternoon, evening, and bedtime. Check-offs will land here.",
     "empty": "Add medications with time slots on your profile to see a timetable.",
     "openProfile": "Open profile",
-    "placeholder": "Compliance check-offs, MiniSearch, and sponsor slots plug into this page."
+    "placeholder": "MiniSearch and sponsor slots plug into this page.",
+    "summaryToday": "{checked} of {total} doses taken today",
+    "streak": "{count}-day streak",
+    "taken": "Taken",
+    "markTaken": "Mark {medication} as taken",
+    "unnamedMedication": "Unnamed medication"
+  },
+  "ads": {
+    "label": "Sponsor",
+    "cta": "Learn more",
+    "disclosure": "Static sponsor message. No trackers, scripts, or external requests."
   },
   "emergency": {
     "title": "Emergency view",
     "lead": "High-contrast summary for first responders. Share only what you intend to share.",
-    "warning": "A shareable emergency link puts health data in the URL. Anyone with the link can read it. Prefer the emergency-only payload.",
-    "copyFull": "Copy full profile link",
-    "copyEmergency": "Copy emergency-only link",
-    "copied": "Copied to clipboard",
-    "copyFailed": "Could not copy. Copy the address bar instead.",
+    "warning": "This link puts health data in the URL. Anyone who opens it can read it. Prefer the emergency-only payload below.",
     "empty": "No profile loaded. Open your profile or a #data= link.",
+    "sourceHash": "Viewing a shared link",
+    "sourceLocal": "Viewing your profile on this device",
+    "offlineNote": "Works offline once loaded",
+    "primaryContact": "primary",
     "blood": "Blood type",
     "dob": "Born",
     "allergies": "Allergies",
@@ -115,15 +125,107 @@
     "conditions": "Conditions",
     "medications": "Medications",
     "contacts": "Call",
-    "doctor": "Clinician",
-    "placeholder": "QR share and AAA contrast refinements plug into this page."
+    "doctor": "Clinician"
+  },
+  "glyph": {
+    "preview": "Medication glyph preview",
+    "formLabel": "Shape",
+    "form": {
+      "tablet-round": "Round tablet",
+      "tablet-scored": "Scored tablet",
+      "tablet-oval": "Oval tablet",
+      "caplet": "Caplet",
+      "capsule": "Two-tone capsule",
+      "liquid": "Oral liquid",
+      "inhaler": "Inhaler",
+      "pen": "Injector pen",
+      "patch": "Transdermal patch"
+    },
+    "primaryColor": "Primary color",
+    "secondaryColor": "Secondary color",
+    "hexInputLabel": "Hex color",
+    "hexInvalid": "Enter a valid hex color, e.g. #1a73e8",
+    "scoringLabel": "Scoring",
+    "scoring": {
+      "none": "None",
+      "single": "Single score",
+      "cross": "Cross score"
+    },
+    "colorNames": {
+      "blue": "Blue",
+      "red": "Red",
+      "green": "Green",
+      "purple": "Purple",
+      "orange": "Orange",
+      "teal": "Teal",
+      "yellow": "Yellow",
+      "gray": "Gray",
+      "black": "Black",
+      "white": "White"
+    }
+  },
+  "search": {
+    "conditionPlaceholder": "Type a condition name or ICD-10 code\u2026",
+    "medicationPlaceholder": "Type a medication name\u2026",
+    "hint": "Suggestions load in the background as you type. Free text works too.",
+    "loading": "Searching\u2026",
+    "noResults": "No matches found",
+    "resultsCount": "{count} matches found",
+    "selected": "Selected {label}"
   },
   "print": {
     "title": "Print and PDF",
     "lead": "Wallet card and daily intake templates will render from the same profile and glyphs.",
-    "templateA": "Template A — foldable wallet card (3.375 × 2.125 in), two-sided, allergy badge, emergency QR.",
-    "templateB": "Template B — A4 / Letter daily intake grouped Morning / Afternoon / Evening / Bedtime.",
+    "templateA": "Template A \u2014 foldable wallet card (3.375 \u00d7 2.125 in), two-sided, allergy badge, emergency QR.",
+    "templateB": "Template B \u2014 A4 / Letter daily intake grouped Morning / Afternoon / Evening / Bedtime.",
     "openEmergency": "Preview emergency view",
     "placeholder": "jsPDF generation plugs into this page. Nothing leaves the device."
+  },
+  "pdf": {
+    "walletCard": {
+      "heading": "Emergency wallet card",
+      "description": "Two-panel PDF sized to fit a wallet. Fold along the middle so the QR code and contacts show on the back.",
+      "download": "Download wallet card (PDF)",
+      "generating": "Generating wallet card\u2026",
+      "error": "Could not generate the wallet card. Try again.",
+      "eyebrow": "Emergency medical ID",
+      "namePlaceholder": "Name not set",
+      "conditions": "Conditions",
+      "allergies": "Allergies",
+      "noAllergies": "No known allergies",
+      "none": "None listed",
+      "scanQr": "Scan for full emergency profile",
+      "contacts": "Emergency contacts",
+      "footer": "Cadence — local-first medical ID"
+    },
+    "dailyIntake": {
+      "heading": "Daily intake schedule",
+      "description": "Clinical medication schedule grouped by time of day, with dose, instructions, and glyph.",
+      "downloadA4": "Download A4 (PDF)",
+      "downloadLetter": "Download Letter (PDF)",
+      "generating": "Generating schedule\u2026",
+      "error": "Could not generate the schedule. Try again.",
+      "title": "Daily Intake Schedule",
+      "namePlaceholder": "Unnamed profile",
+      "generatedOn": "Generated {date}",
+      "empty": "No medications with a time slot are recorded yet."
+    }
+  },
+  "share": {
+    "title": "Share",
+    "healthDataWarning": "This QR code and link contain health data. Anyone who scans or opens it can read it \u2014 only share with people you trust.",
+    "emergencyOnlyToggle": "Emergency-only link",
+    "emergencyOnlyHint": "Shares name, blood type, allergies, conditions, medications, and contacts only.",
+    "fullPayloadHint": "Shares your full profile, including notes and clinician details.",
+    "qrAltEmergency": "QR code linking to the emergency-only medical summary",
+    "qrAltFull": "QR code linking to the full medical profile",
+    "linkPending": "Generating link\u2026",
+    "copyLink": "Copy link",
+    "copied": "Copied to clipboard",
+    "copyFailed": "Could not copy. Copy the link text instead.",
+    "confirmFullTitle": "Share the full profile?",
+    "confirmFullBody": "The full profile includes private notes and clinician details, not just emergency information. Anyone with this link or QR code will be able to read them.",
+    "confirmCancel": "Cancel",
+    "confirmFullAction": "Share full profile"
   }
 }
