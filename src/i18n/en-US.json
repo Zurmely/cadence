@@ -12,7 +12,7 @@
     "print": "Print",
     "language": "Language",
     "languageEn": "English",
-    "languagePt": "Portugu\u00eas"
+    "languagePt": "Português"
   },
   "footer": {
     "privacy": "Cadence never sends your health data to a server. Everything lives in this browser and, if you choose, in a URL hash you control.",
@@ -165,10 +165,10 @@
     }
   },
   "search": {
-    "conditionPlaceholder": "Type a condition name or ICD-10 code\u2026",
-    "medicationPlaceholder": "Type a medication name\u2026",
+    "conditionPlaceholder": "Type a condition name or ICD-10 code…",
+    "medicationPlaceholder": "Type a medication name…",
     "hint": "Suggestions load in the background as you type. Free text works too.",
-    "loading": "Searching\u2026",
+    "loading": "Searching…",
     "noResults": "No matches found",
     "resultsCount": "{count} matches found",
     "selected": "Selected {label}"
@@ -176,8 +176,8 @@
   "print": {
     "title": "Print and PDF",
     "lead": "Wallet card and daily intake templates will render from the same profile and glyphs.",
-    "templateA": "Template A \u2014 foldable wallet card (3.375 \u00d7 2.125 in), two-sided, allergy badge, emergency QR.",
-    "templateB": "Template B \u2014 A4 / Letter daily intake grouped Morning / Afternoon / Evening / Bedtime.",
+    "templateA": "Template A — foldable wallet card (3.375 × 2.125 in), two-sided, allergy badge, emergency QR.",
+    "templateB": "Template B — A4 / Letter daily intake grouped Morning / Afternoon / Evening / Bedtime.",
     "openEmergency": "Preview emergency view",
     "placeholder": "jsPDF generation plugs into this page. Nothing leaves the device."
   },
@@ -186,7 +186,7 @@
       "heading": "Emergency wallet card",
       "description": "Two-panel PDF sized to fit a wallet. Fold along the middle so the QR code and contacts show on the back.",
       "download": "Download wallet card (PDF)",
-      "generating": "Generating wallet card\u2026",
+      "generating": "Generating wallet card…",
       "error": "Could not generate the wallet card. Try again.",
       "eyebrow": "Emergency medical ID",
       "namePlaceholder": "Name not set",
@@ -203,7 +203,7 @@
       "description": "Clinical medication schedule grouped by time of day, with dose, instructions, and glyph.",
       "downloadA4": "Download A4 (PDF)",
       "downloadLetter": "Download Letter (PDF)",
-      "generating": "Generating schedule\u2026",
+      "generating": "Generating schedule…",
       "error": "Could not generate the schedule. Try again.",
       "title": "Daily Intake Schedule",
       "namePlaceholder": "Unnamed profile",
@@ -213,13 +213,13 @@
   },
   "share": {
     "title": "Share",
-    "healthDataWarning": "This QR code and link contain health data. Anyone who scans or opens it can read it \u2014 only share with people you trust.",
+    "healthDataWarning": "This QR code and link contain health data. Anyone who scans or opens it can read it — only share with people you trust.",
     "emergencyOnlyToggle": "Emergency-only link",
     "emergencyOnlyHint": "Shares name, blood type, allergies, conditions, medications, and contacts only.",
     "fullPayloadHint": "Shares your full profile, including notes and clinician details.",
     "qrAltEmergency": "QR code linking to the emergency-only medical summary",
     "qrAltFull": "QR code linking to the full medical profile",
-    "linkPending": "Generating link\u2026",
+    "linkPending": "Generating link…",
     "copyLink": "Copy link",
     "copied": "Copied to clipboard",
     "copyFailed": "Could not copy. Copy the link text instead.",
