@@ -3,6 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import { EmergencyShell } from '../components/emergency/EmergencyShell';
 ---
 
-<Layout title="Cadence — Emergency" description="High-contrast emergency medical summary.">
+<Layout
+  title="Cadence — Emergency"
+  description="High-contrast emergency medical summary."
+  minimalChrome
+>
   <EmergencyShell client:load />
 </Layout>
