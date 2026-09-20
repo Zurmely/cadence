@@ -1,49 +1,59 @@
 # Cadence
 
-Cadence is a small web app for making **print-ready Medical ID cards** and **Medication Cadence schedules** that are easy to read for people with poor eyesight, limited dexterity, or who simply need plain language.
+Cadence is a **local-first medical ID** and daily medication cadence. One person, one browser: allergies, conditions, medications, emergency contacts, and notes stay on the device. There are no doctor/patient accounts and no server-side health data — that is the LGPD stance.
 
-Everything is stored in the browser (`localStorage`). There is no account, database, or server upload.
+The production site is [cadence.zurmely.com](https://cadence.zurmely.com).
 
-## What it does
+## Run locally
 
-- **My Medical ID** (`/my-id`) — an accessible form (name, date of birth, blood type, allergies, conditions, medications, emergency contacts, doctor, notes) with a live wallet-card preview.
-- **Print / download PDF** (`/print/<record>?doc=id&format=…`) — wallet card (CR80, 85.6 × 54 mm, front and back), fold-over card, A4 page, or US Letter page, each with the correct `@page` size. Download a PDF directly or keep using the browser print dialog.
-- **Doctor mode** (`/doctor`) — create records for patients and build a **Medication Cadence** page: which medicine to take at which time of day (morning / midday / evening / bedtime with clear icons), dose, with or without food, plain-language instructions, and a large pill drawing (colour, shape, marking, or an uploaded photo). Printable in A4 or Letter; a weekly grid is added automatically when a medicine is not taken every day.
-- **Import / export** — move a complete Medical ID and medication schedule, or all patient records, with a validated Cadence JSON backup.
-- **Accessibility** — 18 px base text with a *Large print* toggle (22 px), a *High contrast* toggle, WCAG AA colours, 44 px+ touch targets, icons paired with text, semantic HTML, labelled controls, keyboard navigation, skip link, and reduced-motion support.
-
-## Run it locally
+Requires Node.js 22+.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open <http://localhost:4517>.
+Then open the printed local URL (Astro binds to an available port).
 
-Other scripts:
+## Test
 
 ```bash
-npm run build   # production build
-npm run start   # serve the production build on port 4517
-npm run lint    # eslint
-npm test        # Vitest automated test suite
+npm test          # Vitest: hash round-trip, i18n key parity, store autosave
+npm run check     # astro check (strict TypeScript)
+npm run build     # static export to dist/
 ```
 
-## Stack
+## Deploy
 
-Next.js (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · lucide-react · Atkinson Hyperlegible font.
+Pushes to `main` run `.github/workflows/deploy.yml`: install, test, `astro check`, `astro build`, then GitHub Pages (`configure-pages`, `upload-pages-artifact`, `deploy-pages`).
 
-## Project layout
+`public/CNAME` is `cadence.zurmely.com`. Astro is configured with `output: 'static'`, `site: 'https://cadence.zurmely.com'`, and a root base path.
 
-```
-src/app/                     routes: /, /my-id, /doctor, /doctor/[patientId], /print/[recordId]
-src/components/medical-id/   form, wallet card, fold-over card, A4/Letter sheet
-src/components/cadence/      medication form, pill SVG, time-of-day icons, printable schedule
-src/components/record-editor.tsx  shared editor with tabs, live preview, and print links
-src/hooks/use-records.ts     localStorage-backed records with autosave
-src/lib/types.ts             data model and constants
-src/lib/storage.ts           localStorage read/write with error handling
-src/lib/record-transfer.ts   JSON backup validation and merging
-src/lib/pdf.ts               direct client-side PDF generation
-```
+### DNS
+
+Create a **CNAME** record:
+
+| Host     | Target              |
+| -------- | ------------------- |
+| `cadence` | `zurmely.github.io` |
+
+In the GitHub repo: Settings → Pages → custom domain `cadence.zurmely.com` (HTTPS).
+
+## Privacy
+
+- No analytics, webfonts, or third-party scripts.
+- Profile JSON is stored under the versioned key `cadence.profile.v1` in `localStorage` and autosaved with a debounce.
+- Optional share URLs encode a compressed profile into `#data=` (lz-string). The emergency view can copy an **emergency-only** payload that drops notes and other private fields.
+- A shareable emergency URL **contains health data by design**. The UI warns before copying. Treat that link like a paper card: anyone who has it can read it.
+
+## Project layout (extension points)
+
+| Path | What plugs in |
+| --- | --- |
+| `src/lib/profile/` | Schema, `getProfileStore()` / `createProfileStore()`, hash codec |
+| `src/i18n/` + `src/lib/i18n/` | `t(locale, key)` typed from `en-US.json` |
+| `src/components/glyph/` | Parametric `MedicationGlyph` SVG |
+| `src/components/search/` + `src/workers/` + `public/data/` | MiniSearch autocomplete |
+| `src/components/pdf/` | jsPDF wallet card and daily intake |
+| `src/components/ads/` | Static `SponsorSlot` layout tokens |
+| `src/pages/` | `/`, `/schedule`, `/emergency`, `/print` |

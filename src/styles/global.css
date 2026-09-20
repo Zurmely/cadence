@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+/*
+  Cadence design tokens — medical-grade, high-contrast, large-type baseline.
+  Extension point: parallel components should reuse these CSS variables and
+  the `text-base` (18px) default rather than introducing new type scales.
+*/
+@theme {
+  --font-sans:
+    'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --color-cadence-bg: #f7f8fa;
+  --color-cadence-surface: #ffffff;
+  --color-cadence-border: #cbd2d9;
+  --color-cadence-text: #10151a;
+  --color-cadence-muted: #4b5563;
+
+  --color-cadence-primary: #0b5fa8;
+  --color-cadence-primary-dark: #063f70;
+  --color-cadence-primary-contrast: #ffffff;
+
+  --color-cadence-danger: #b3261e;
+  --color-cadence-danger-contrast: #ffffff;
+
+  --color-cadence-success: #146c43;
+  --color-cadence-warning: #9a6700;
+
+  --text-base: 18px;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--color-cadence-bg);
+    color: var(--color-cadence-text);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-cadence-primary);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .cadence-card {
+    background-color: var(--color-cadence-surface);
+    border: 1px solid var(--color-cadence-border);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
+  }
+
+  .cadence-skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    z-index: 50;
+    background: var(--color-cadence-primary);
+    color: var(--color-cadence-primary-contrast);
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 0.5rem 0;
+  }
+
+  .cadence-skip-link:focus {
+    left: 0;
+  }
+}

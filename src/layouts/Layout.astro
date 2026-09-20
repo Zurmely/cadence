@@ -1,0 +1,41 @@
+---
+import '../styles/global.css';
+import { Footer } from '../components/layout/Footer';
+import { Nav } from '../components/layout/Nav';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Cadence', description = 'Local-first medical ID' } = Astro.props;
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="referrer" content="no-referrer" />
+    <title>{title}</title>
+    <script is:inline>
+      try {
+        var stored = localStorage.getItem('cadence.locale.v1');
+        if (stored === 'pt-BR' || stored === 'en-US') {
+          document.documentElement.lang = stored === 'pt-BR' ? 'pt-BR' : 'en';
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Nav client:load currentPath={path} />
+    <main id="main" class="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:py-8">
+      <slot />
+    </main>
+    <Footer client:load />
+  </body>
+</html>
