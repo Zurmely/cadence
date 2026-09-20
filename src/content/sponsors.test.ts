@@ -6,7 +6,7 @@ const validSponsor: Sponsor = {
   link: 'https://example.org/sponsor',
   copy: {
     'en-US': { title: 'Example Sponsor', body: 'Supporting local-first health tools.' },
-    'pt-BR': { title: 'Patrocinador Exemplo', body: 'Apoiando ferramentas de sa\u00fade locais.' },
+    'pt-BR': { title: 'Patrocinador Exemplo', body: 'Apoiando ferramentas de saúde locais.' },
   },
 };
 
