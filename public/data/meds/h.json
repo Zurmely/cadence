@@ -1,0 +1,5 @@
+[
+  { "id": "haloperidol", "en": "Haloperidol", "pt": "Haloperidol", "strengths": ["5 mg"], "forms": ["tablet", "oral drops"] },
+  { "id": "hydrochlorothiazide", "en": "Hydrochlorothiazide", "pt": "Hidroclorotiazida", "strengths": ["12.5 mg", "25 mg"], "forms": ["tablet"] },
+  { "id": "hydrocortisone", "en": "Hydrocortisone", "pt": "Hidrocortisona", "strengths": ["100 mg"], "forms": ["injection", "topical cream"] }
+]

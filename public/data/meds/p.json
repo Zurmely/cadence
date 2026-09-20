@@ -1,0 +1,8 @@
+[
+  { "id": "pantoprazole", "en": "Pantoprazole", "pt": "Pantoprazol", "strengths": ["20 mg", "40 mg"], "forms": ["tablet"] },
+  { "id": "phenytoin", "en": "Phenytoin", "pt": "Fenitoina", "strengths": ["100 mg"], "forms": ["tablet"] },
+  { "id": "prednisone", "en": "Prednisone", "pt": "Prednisona", "strengths": ["5 mg", "20 mg"], "forms": ["tablet"] },
+  { "id": "prednisolone", "en": "Prednisolone", "pt": "Prednisolona", "strengths": ["5 mg", "20 mg/5 mL"], "forms": ["tablet", "syrup"] },
+  { "id": "pregabalin", "en": "Pregabalin", "pt": "Pregabalina", "strengths": ["75 mg", "150 mg"], "forms": ["capsule"] },
+  { "id": "propranolol", "en": "Propranolol", "pt": "Propranolol", "strengths": ["40 mg"], "forms": ["tablet"] }
+]

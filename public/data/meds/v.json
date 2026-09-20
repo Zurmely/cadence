@@ -1,0 +1,6 @@
+[
+  { "id": "valproic-acid", "en": "Valproic acid", "pt": "Ácido valproico", "strengths": ["250 mg", "500 mg"], "forms": ["tablet"] },
+  { "id": "vancomycin", "en": "Vancomycin", "pt": "Vancomicina", "strengths": ["500 mg", "1 g"], "forms": ["injection"] },
+  { "id": "verapamil", "en": "Verapamil", "pt": "Verapamil", "strengths": ["80 mg", "120 mg"], "forms": ["tablet"] },
+  { "id": "vitamin-d", "en": "Vitamin D (Cholecalciferol)", "pt": "Vitamina D (Colecalciferol)", "strengths": ["7,000 IU", "50,000 IU"], "forms": ["capsule", "oral drops"] }
+]

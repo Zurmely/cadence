@@ -1,0 +1,5 @@
+[
+  { "id": "ranitidine", "en": "Ranitidine", "pt": "Ranitidina", "strengths": ["150 mg"], "forms": ["tablet"] },
+  { "id": "risperidone", "en": "Risperidone", "pt": "Risperidona", "strengths": ["1 mg", "2 mg"], "forms": ["tablet", "oral solution"] },
+  { "id": "rosuvastatin", "en": "Rosuvastatin", "pt": "Rosuvastatina", "strengths": ["10 mg", "20 mg"], "forms": ["tablet"] }
+]

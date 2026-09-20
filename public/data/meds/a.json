@@ -1,0 +1,11 @@
+[
+  { "id": "paracetamol", "en": "Paracetamol (Acetaminophen)", "pt": "Paracetamol", "strengths": ["500 mg", "750 mg", "1 g"], "forms": ["tablet", "oral drops", "syrup"] },
+  { "id": "amoxicillin", "en": "Amoxicillin", "pt": "Amoxicilina", "strengths": ["250 mg", "500 mg", "875 mg"], "forms": ["capsule", "oral suspension"] },
+  { "id": "amoxicillin-clavulanate", "en": "Amoxicillin + Clavulanate", "pt": "Amoxicilina + Clavulanato", "strengths": ["500/125 mg", "875/125 mg"], "forms": ["tablet", "oral suspension"] },
+  { "id": "amlodipine", "en": "Amlodipine", "pt": "Anlodipino", "strengths": ["5 mg", "10 mg"], "forms": ["tablet"] },
+  { "id": "amiodarone", "en": "Amiodarone", "pt": "Amiodarona", "strengths": ["200 mg"], "forms": ["tablet", "injection"] },
+  { "id": "azithromycin", "en": "Azithromycin", "pt": "Azitromicina", "strengths": ["500 mg"], "forms": ["tablet", "oral suspension"] },
+  { "id": "alprazolam", "en": "Alprazolam", "pt": "Alprazolam", "strengths": ["0.25 mg", "0.5 mg", "1 mg"], "forms": ["tablet"] },
+  { "id": "atorvastatin", "en": "Atorvastatin", "pt": "Atorvastatina", "strengths": ["10 mg", "20 mg", "40 mg", "80 mg"], "forms": ["tablet"] },
+  { "id": "acyclovir", "en": "Acyclovir", "pt": "Aciclovir", "strengths": ["200 mg", "400 mg"], "forms": ["tablet", "topical cream"] }
+]
