@@ -1,0 +1,9 @@
+[
+  { "code": "L02", "chapter": "XII", "en": "Cutaneous abscess, furuncle and carbuncle", "pt": "Abscesso cutâneo, furúnculo e antraz" },
+  { "code": "L03", "chapter": "XII", "en": "Cellulitis", "pt": "Celulite" },
+  { "code": "L20", "chapter": "XII", "en": "Atopic dermatitis", "pt": "Dermatite atópica" },
+  { "code": "L23", "chapter": "XII", "en": "Allergic contact dermatitis", "pt": "Dermatite alérgica de contato" },
+  { "code": "L40", "chapter": "XII", "en": "Psoriasis", "pt": "Psoríase" },
+  { "code": "L50", "chapter": "XII", "en": "Urticaria", "pt": "Urticária" },
+  { "code": "L70", "chapter": "XII", "en": "Acne", "pt": "Acne" }
+]

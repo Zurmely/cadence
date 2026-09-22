@@ -97,17 +97,27 @@
     "lead": "Medicamentos agrupados em manhã, tarde, noite e ao deitar. Os check-offs entram aqui.",
     "empty": "Adicione medicamentos com horários no perfil para ver a agenda.",
     "openProfile": "Abrir perfil",
-    "placeholder": "Check-offs de adesão, MiniSearch e espaços de patrocínio encaixam nesta página."
+    "placeholder": "MiniSearch e espaços de patrocínio encaixam nesta página.",
+    "summaryToday": "{checked} de {total} doses tomadas hoje",
+    "streak": "Sequência de {count} dias",
+    "taken": "Tomado",
+    "markTaken": "Marcar {medication} como tomado",
+    "unnamedMedication": "Medicamento sem nome"
+  },
+  "ads": {
+    "label": "Patrocinador",
+    "cta": "Saiba mais",
+    "disclosure": "Mensagem estática de patrocinador. Sem rastreadores, scripts ou requisições externas."
   },
   "emergency": {
     "title": "Visão de emergência",
     "lead": "Resumo de alto contraste para socorristas. Compartilhe só o que pretende compartilhar.",
-    "warning": "Um link de emergência coloca dados de saúde na URL. Quem tiver o link pode ler. Prefira o payload só de emergência.",
-    "copyFull": "Copiar link completo",
-    "copyEmergency": "Copiar link só de emergência",
-    "copied": "Copiado para a área de transferência",
-    "copyFailed": "Não foi possível copiar. Copie a barra de endereço.",
+    "warning": "Este link coloca dados de saúde na URL. Quem abrir o link pode lê-los. Prefira o payload só de emergência abaixo.",
     "empty": "Nenhum perfil carregado. Abra seu perfil ou um link #data=.",
+    "sourceHash": "Vendo um link compartilhado",
+    "sourceLocal": "Vendo seu perfil neste dispositivo",
+    "offlineNote": "Funciona offline depois de carregado",
+    "primaryContact": "principal",
     "blood": "Tipo sanguíneo",
     "dob": "Nascimento",
     "allergies": "Alergias",
@@ -115,8 +125,53 @@
     "conditions": "Condições",
     "medications": "Medicamentos",
     "contacts": "Ligar",
-    "doctor": "Clínico",
-    "placeholder": "QR e refinamentos de contraste AAA encaixam nesta página."
+    "doctor": "Clínico"
+  },
+  "glyph": {
+    "preview": "Pré-visualização do glifo do medicamento",
+    "formLabel": "Forma",
+    "form": {
+      "tablet-round": "Comprimido redondo",
+      "tablet-scored": "Comprimido ranhurado",
+      "tablet-oval": "Comprimido oval",
+      "caplet": "Cápsula comprimida",
+      "capsule": "Cápsula bicolor",
+      "liquid": "Líquido oral",
+      "inhaler": "Inalador",
+      "pen": "Caneta injetora",
+      "patch": "Adesivo transdérmico"
+    },
+    "primaryColor": "Cor primária",
+    "secondaryColor": "Cor secundária",
+    "hexInputLabel": "Cor em hexadecimal",
+    "hexInvalid": "Informe uma cor hexadecimal válida, por exemplo #1a73e8",
+    "scoringLabel": "Ranhura",
+    "scoring": {
+      "none": "Nenhuma",
+      "single": "Ranhura simples",
+      "cross": "Ranhura cruzada"
+    },
+    "colorNames": {
+      "blue": "Azul",
+      "red": "Vermelho",
+      "green": "Verde",
+      "purple": "Roxo",
+      "orange": "Laranja",
+      "teal": "Verde-azulado",
+      "yellow": "Amarelo",
+      "gray": "Cinza",
+      "black": "Preto",
+      "white": "Branco"
+    }
+  },
+  "search": {
+    "conditionPlaceholder": "Digite o nome da condição ou código CID-10…",
+    "medicationPlaceholder": "Digite o nome do medicamento…",
+    "hint": "As sugestões carregam em segundo plano enquanto você digita. Texto livre também funciona.",
+    "loading": "Buscando…",
+    "noResults": "Nenhum resultado encontrado",
+    "resultsCount": "{count} resultados encontrados",
+    "selected": "Selecionado {label}"
   },
   "print": {
     "title": "Impressão e PDF",
@@ -125,5 +180,52 @@
     "templateB": "Modelo B — A4 / Carta com ingestão diária agrupada em Manhã / Tarde / Noite / Ao deitar.",
     "openEmergency": "Ver visão de emergência",
     "placeholder": "A geração jsPDF encaixa nesta página. Nada sai do dispositivo."
+  },
+  "pdf": {
+    "walletCard": {
+      "heading": "Cartão de carteira de emergência",
+      "description": "PDF de dois painéis no tamanho de carteira. Dobre no meio para o QR code e os contatos aparecerem no verso.",
+      "download": "Baixar cartão de carteira (PDF)",
+      "generating": "Gerando cartão de carteira…",
+      "error": "Não foi possível gerar o cartão. Tente novamente.",
+      "eyebrow": "Identidade médica de emergência",
+      "namePlaceholder": "Nome não informado",
+      "conditions": "Condições",
+      "allergies": "Alergias",
+      "noAllergies": "Nenhuma alergia conhecida",
+      "none": "Nada informado",
+      "scanQr": "Escaneie para o perfil de emergência completo",
+      "contacts": "Contatos de emergência",
+      "footer": "Cadence — identidade médica local-first"
+    },
+    "dailyIntake": {
+      "heading": "Ficha de ingestão diária",
+      "description": "Agenda clínica de medicamentos agrupada por horário, com dose, instruções e glifo.",
+      "downloadA4": "Baixar A4 (PDF)",
+      "downloadLetter": "Baixar Carta (PDF)",
+      "generating": "Gerando ficha…",
+      "error": "Não foi possível gerar a ficha. Tente novamente.",
+      "title": "Ficha de Ingestão Diária",
+      "namePlaceholder": "Perfil sem nome",
+      "generatedOn": "Gerado em {date}",
+      "empty": "Nenhum medicamento com horário definido foi registrado ainda."
+    }
+  },
+  "share": {
+    "title": "Compartilhar",
+    "healthDataWarning": "Este código QR e o link contêm dados de saúde. Quem escanear ou abrir pode lê-los — compartilhe só com pessoas de confiança.",
+    "emergencyOnlyToggle": "Link só de emergência",
+    "emergencyOnlyHint": "Compartilha nome, tipo sanguíneo, alergias, condições, medicamentos e contatos apenas.",
+    "fullPayloadHint": "Compartilha seu perfil completo, incluindo notas e dados do clínico.",
+    "qrAltEmergency": "Código QR que leva ao resumo médico só de emergência",
+    "qrAltFull": "Código QR que leva ao perfil médico completo",
+    "linkPending": "Gerando link…",
+    "copyLink": "Copiar link",
+    "copied": "Copiado para a área de transferência",
+    "copyFailed": "Não foi possível copiar. Copie o texto do link.",
+    "confirmFullTitle": "Compartilhar o perfil completo?",
+    "confirmFullBody": "O perfil completo inclui notas privadas e dados do clínico, não só informações de emergência. Quem tiver este link ou código QR poderá lê-los.",
+    "confirmCancel": "Cancelar",
+    "confirmFullAction": "Compartilhar perfil completo"
   }
 }

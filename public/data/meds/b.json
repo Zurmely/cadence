@@ -1,0 +1,4 @@
+[
+  { "id": "bisacodyl", "en": "Bisacodyl", "pt": "Bisacodil", "strengths": ["5 mg"], "forms": ["tablet", "suppository"] },
+  { "id": "budesonide", "en": "Budesonide", "pt": "Budesonida", "strengths": ["200 mcg/dose"], "forms": ["inhaler"] }
+]

@@ -1,0 +1,12 @@
+[
+  { "code": "C18", "chapter": "II", "en": "Malignant neoplasm of colon", "pt": "Neoplasia maligna do cólon" },
+  { "code": "C25", "chapter": "II", "en": "Malignant neoplasm of pancreas", "pt": "Neoplasia maligna do pâncreas" },
+  { "code": "C34", "chapter": "II", "en": "Malignant neoplasm of bronchus and lung", "pt": "Neoplasia maligna dos brônquios e do pulmão" },
+  { "code": "C50", "chapter": "II", "en": "Malignant neoplasm of breast", "pt": "Neoplasia maligna da mama" },
+  { "code": "C53", "chapter": "II", "en": "Malignant neoplasm of cervix uteri", "pt": "Neoplasia maligna do colo do útero" },
+  { "code": "C61", "chapter": "II", "en": "Malignant neoplasm of prostate", "pt": "Neoplasia maligna da próstata" },
+  { "code": "C67", "chapter": "II", "en": "Malignant neoplasm of bladder", "pt": "Neoplasia maligna da bexiga" },
+  { "code": "C73", "chapter": "II", "en": "Malignant neoplasm of thyroid gland", "pt": "Neoplasia maligna da glândula tireoide" },
+  { "code": "C90", "chapter": "II", "en": "Multiple myeloma and malignant plasma-cell neoplasms", "pt": "Mieloma múltiplo e neoplasias malignas de plasmócitos" },
+  { "code": "C91", "chapter": "II", "en": "Lymphoid leukaemia", "pt": "Leucemia linfoide" }
+]

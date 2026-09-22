@@ -1,0 +1,8 @@
+[
+  { "id": "salbutamol", "en": "Salbutamol (Albuterol)", "pt": "Salbutamol", "strengths": ["100 mcg/dose"], "forms": ["inhaler", "nebulizer solution"] },
+  { "id": "sertraline", "en": "Sertraline", "pt": "Sertralina", "strengths": ["25 mg", "50 mg", "100 mg"], "forms": ["tablet"] },
+  { "id": "simvastatin", "en": "Simvastatin", "pt": "Sinvastatina", "strengths": ["10 mg", "20 mg", "40 mg"], "forms": ["tablet"] },
+  { "id": "spironolactone", "en": "Spironolactone", "pt": "Espironolactona", "strengths": ["25 mg", "100 mg"], "forms": ["tablet"] },
+  { "id": "simethicone", "en": "Simethicone", "pt": "Dimeticona", "strengths": ["40 mg"], "forms": ["oral drops", "tablet"] },
+  { "id": "sulfamethoxazole-trimethoprim", "en": "Sulfamethoxazole + Trimethoprim", "pt": "Sulfametoxazol + Trimetoprima", "strengths": ["400/80 mg"], "forms": ["tablet"] }
+]

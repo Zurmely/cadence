@@ -1,0 +1,6 @@
+[
+  { "code": "Z00", "chapter": "XXI", "en": "General examination and investigation of persons without complaint or reported diagnosis", "pt": "Exame geral e investigação de pessoas sem queixas ou diagnóstico relatado" },
+  { "code": "Z23", "chapter": "XXI", "en": "Need for immunization against single bacterial diseases", "pt": "Necessidade de imunização contra doença bacteriana única" },
+  { "code": "Z71", "chapter": "XXI", "en": "Persons encountering health services for other counselling and medical advice, not elsewhere classified", "pt": "Pessoas em contato com serviços de saúde para outras consultas e aconselhamento médico, não classificados em outra parte" },
+  { "code": "Z86", "chapter": "XXI", "en": "Personal history of certain other diseases", "pt": "História pessoal de outras doenças" }
+]

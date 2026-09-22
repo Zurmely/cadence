@@ -1,0 +1,12 @@
+[
+  { "code": "A00", "chapter": "I", "en": "Cholera", "pt": "Cólera" },
+  { "code": "A01", "chapter": "I", "en": "Typhoid and paratyphoid fevers", "pt": "Febre tifóide e paratifóide" },
+  { "code": "A03", "chapter": "I", "en": "Shigellosis", "pt": "Shigelose" },
+  { "code": "A08", "chapter": "I", "en": "Viral and other specified intestinal infections", "pt": "Infecções intestinais virais e outras especificadas" },
+  { "code": "A09", "chapter": "I", "en": "Diarrhoea and gastroenteritis of presumed infectious origin", "pt": "Diarreia e gastroenterite de origem infecciosa presumível" },
+  { "code": "A15", "chapter": "I", "en": "Respiratory tuberculosis, confirmed bacteriologically and histologically", "pt": "Tuberculose respiratória, confirmada bacteriologicamente e histologicamente" },
+  { "code": "A41", "chapter": "I", "en": "Other sepsis", "pt": "Outras septicemias" },
+  { "code": "A49", "chapter": "I", "en": "Bacterial infection of unspecified site", "pt": "Infecção bacteriana de localização não especificada" },
+  { "code": "A90", "chapter": "I", "en": "Dengue fever [classical dengue]", "pt": "Dengue [dengue clássico]" },
+  { "code": "A91", "chapter": "I", "en": "Dengue haemorrhagic fever", "pt": "Febre hemorrágica devida ao vírus do dengue" }
+]

@@ -1,0 +1,11 @@
+[
+  { "code": "E03", "chapter": "IV", "en": "Other hypothyroidism", "pt": "Outros hipotireoidismos" },
+  { "code": "E04", "chapter": "IV", "en": "Other nontoxic goitre", "pt": "Outros bócios não tóxicos" },
+  { "code": "E05", "chapter": "IV", "en": "Thyrotoxicosis [hyperthyroidism]", "pt": "Tireotoxicose [hipertireoidismo]" },
+  { "code": "E10", "chapter": "IV", "en": "Insulin-dependent diabetes mellitus", "pt": "Diabetes mellitus insulino-dependente" },
+  { "code": "E11", "chapter": "IV", "en": "Non-insulin-dependent diabetes mellitus", "pt": "Diabetes mellitus não-insulino-dependente" },
+  { "code": "E66", "chapter": "IV", "en": "Obesity", "pt": "Obesidade" },
+  { "code": "E78", "chapter": "IV", "en": "Disorders of lipoprotein metabolism and other lipidaemias", "pt": "Distúrbios do metabolismo de lipoproteínas e outras lipidemias" },
+  { "code": "E86", "chapter": "IV", "en": "Volume depletion", "pt": "Depleção de volume" },
+  { "code": "E87", "chapter": "IV", "en": "Other disorders of fluid, electrolyte and acid-base balance", "pt": "Outros transtornos do equilíbrio hidroeletrolítico e acidobásico" }
+]

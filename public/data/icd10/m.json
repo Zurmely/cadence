@@ -1,0 +1,11 @@
+[
+  { "code": "M15", "chapter": "XIII", "en": "Polyosteoarthritis", "pt": "Poliartrose" },
+  { "code": "M17", "chapter": "XIII", "en": "Gonarthrosis [arthrosis of knee]", "pt": "Gonartrose [artrose do joelho]" },
+  { "code": "M19", "chapter": "XIII", "en": "Other arthrosis", "pt": "Outras artroses" },
+  { "code": "M25", "chapter": "XIII", "en": "Other joint disorders, not elsewhere classified", "pt": "Outros transtornos articulares não classificados em outra parte" },
+  { "code": "M32", "chapter": "XIII", "en": "Systemic lupus erythematosus", "pt": "Lúpus eritematoso sistêmico" },
+  { "code": "M47", "chapter": "XIII", "en": "Spondylosis", "pt": "Espondilose" },
+  { "code": "M54", "chapter": "XIII", "en": "Dorsalgia", "pt": "Dorsalgia" },
+  { "code": "M79", "chapter": "XIII", "en": "Other soft tissue disorders, not elsewhere classified", "pt": "Outros transtornos dos tecidos moles não classificados em outra parte" },
+  { "code": "M81", "chapter": "XIII", "en": "Osteoporosis without pathological fracture", "pt": "Osteoporose sem fratura patológica" }
+]

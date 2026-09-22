@@ -13,8 +13,14 @@
  *   Profile, Medication, Allergy, Condition, EmergencyContact, Doctor
  *   MedicationGlyphParams (form, primaryColor, secondaryColor, scoring)
  *   SCHEDULE_SLOTS, createEmptyMedication, parseProfile, toEmergencyProfile
+ *
+ * Emergency view:
+ *   useEmergencyProfile() -> hash-first, local-fallback, never overwrites storage
+ *   resolveEmergencyProfile(hash, localProfile) -> pure resolver used by the hook
  */
 export * from './schema';
 export * from './store';
 export * from './hash';
 export { useProfile } from './useProfile';
+export * from './emergencySource';
+export { useEmergencyProfile } from './useEmergencyProfile';

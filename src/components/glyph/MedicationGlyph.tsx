@@ -1,9 +1,14 @@
-import type { MedicationGlyphParams } from '../../lib/profile';
+import { useId } from 'react';
+import type { MedicationGlyphParams } from '../../lib/profile/schema';
+import { buildGlyphGeometry, describeGlyph, GLYPH_VIEW_BOX, type GlyphShape } from './geometry';
+
+export type { MedicationGlyphParams };
 
 /**
- * Placeholder SVG. Replace this module with the parametric MedicationGlyph
- * (tablet / capsule / liquid / inhaler / pen / patch) used by cards, timeline,
- * and PDF rasterization.
+ * Parametric medication glyph. Draws from the same shape geometry as
+ * `renderGlyphSvgString` (render.ts) so the on-screen preview, the PDF
+ * raster, and the plain SVG string can never disagree. Pure vector output
+ * on a fixed viewBox keeps it crisp at any `size`.
  */
 export function MedicationGlyph({
   form,
@@ -11,23 +16,98 @@ export function MedicationGlyph({
   secondaryColor,
   scoring,
   size = 40,
-}: MedicationGlyphParams & { size?: number }) {
-  const label = `${form}${scoring ? `, score ${scoring}` : ''}`;
+  label,
+}: MedicationGlyphParams & { size?: number; label?: string }) {
+  const titleId = useId();
+  const accessibleLabel = label ?? describeGlyph({ form, primaryColor, secondaryColor, scoring });
+  const { viewBox, shapes } = buildGlyphGeometry({ form, primaryColor, secondaryColor, scoring });
+
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 40 40"
+      viewBox={viewBox || GLYPH_VIEW_BOX}
       role="img"
-      aria-label={label}
+      aria-labelledby={titleId}
     >
-      <rect x="4" y="8" width="32" height="24" rx="12" fill={primaryColor} />
-      <rect x="20" y="8" width="16" height="24" rx="12" fill={secondaryColor} />
-      {scoring > 0 ? (
-        <line x1="20" y1="10" x2="20" y2="30" stroke="#10151a" strokeWidth="2" />
-      ) : null}
+      <title id={titleId}>{accessibleLabel}</title>
+      {shapes.map((shape, index) => (
+        <GlyphShapeNode key={index} shape={shape} />
+      ))}
     </svg>
   );
 }
 
-export type { MedicationGlyphParams };
+function GlyphShapeNode({ shape }: { shape: GlyphShape }) {
+  switch (shape.kind) {
+    case 'circle':
+      return (
+        <circle
+          cx={shape.cx}
+          cy={shape.cy}
+          r={shape.r}
+          fill={shape.fill ?? 'none'}
+          stroke={shape.stroke}
+          strokeWidth={shape.strokeWidth}
+          opacity={shape.opacity}
+        />
+      );
+    case 'ellipse':
+      return (
+        <ellipse
+          cx={shape.cx}
+          cy={shape.cy}
+          rx={shape.rx}
+          ry={shape.ry}
+          fill={shape.fill ?? 'none'}
+          stroke={shape.stroke}
+          strokeWidth={shape.strokeWidth}
+          opacity={shape.opacity}
+        />
+      );
+    case 'rect':
+      return (
+        <rect
+          x={shape.x}
+          y={shape.y}
+          width={shape.width}
+          height={shape.height}
+          rx={shape.rx}
+          ry={shape.ry}
+          fill={shape.fill ?? 'none'}
+          stroke={shape.stroke}
+          strokeWidth={shape.strokeWidth}
+          strokeDasharray={shape.strokeDasharray}
+          opacity={shape.opacity}
+        />
+      );
+    case 'line':
+      return (
+        <line
+          x1={shape.x1}
+          y1={shape.y1}
+          x2={shape.x2}
+          y2={shape.y2}
+          stroke={shape.stroke}
+          strokeWidth={shape.strokeWidth}
+          strokeLinecap={shape.strokeLinecap}
+          strokeDasharray={shape.strokeDasharray}
+          opacity={shape.opacity}
+        />
+      );
+    case 'path':
+      return (
+        <path
+          d={shape.d}
+          fill={shape.fill ?? 'none'}
+          stroke={shape.stroke}
+          strokeWidth={shape.strokeWidth}
+          strokeLinecap={shape.strokeLinecap}
+          strokeDasharray={shape.strokeDasharray}
+          opacity={shape.opacity}
+        />
+      );
+    default:
+      return null;
+  }
+}

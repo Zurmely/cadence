@@ -93,6 +93,8 @@ export type Condition = z.infer<typeof conditionSchema>;
 export const medicationSchema = z.object({
   id: z.string(),
   name: z.string(),
+  /** Medication catalog id from the autocomplete dataset (public/data/meds/), if selected. */
+  code: z.string(),
   dose: z.string(),
   instructions: z.string(),
   slots: scheduleSlotsSchema,
@@ -166,6 +168,7 @@ export function createEmptyMedication(): Medication {
   return {
     id: createId(),
     name: '',
+    code: '',
     dose: '',
     instructions: '',
     slots: { ...EMPTY_SLOTS },
@@ -289,6 +292,7 @@ export function toEmergencyProfile(profile: Profile): Profile {
     medications: profile.medications.map((item) => ({
       id: item.id,
       name: item.name,
+      code: item.code,
       dose: item.dose,
       instructions: '',
       slots: { ...item.slots },

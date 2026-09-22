@@ -1,0 +1,12 @@
+[
+  { "code": "K02", "chapter": "XI", "en": "Dental caries", "pt": "Cárie dentária" },
+  { "code": "K21", "chapter": "XI", "en": "Gastro-oesophageal reflux disease", "pt": "Doença de refluxo gastroesofágico" },
+  { "code": "K29", "chapter": "XI", "en": "Gastritis and duodenitis", "pt": "Gastrite e duodenite" },
+  { "code": "K35", "chapter": "XI", "en": "Acute appendicitis", "pt": "Apendicite aguda" },
+  { "code": "K40", "chapter": "XI", "en": "Inguinal hernia", "pt": "Hérnia inguinal" },
+  { "code": "K57", "chapter": "XI", "en": "Diverticular disease of intestine", "pt": "Doença diverticular do intestino" },
+  { "code": "K59", "chapter": "XI", "en": "Other functional intestinal disorders", "pt": "Outros transtornos funcionais do intestino" },
+  { "code": "K70", "chapter": "XI", "en": "Alcoholic liver disease", "pt": "Doença hepática alcoólica" },
+  { "code": "K80", "chapter": "XI", "en": "Cholelithiasis", "pt": "Colelitíase" },
+  { "code": "K85", "chapter": "XI", "en": "Acute pancreatitis", "pt": "Pancreatite aguda" }
+]

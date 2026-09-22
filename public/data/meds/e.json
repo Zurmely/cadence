@@ -1,0 +1,4 @@
+[
+  { "id": "enalapril", "en": "Enalapril", "pt": "Enalapril", "strengths": ["5 mg", "10 mg", "20 mg"], "forms": ["tablet"] },
+  { "id": "escitalopram", "en": "Escitalopram", "pt": "Escitalopram", "strengths": ["10 mg", "20 mg"], "forms": ["tablet"] }
+]

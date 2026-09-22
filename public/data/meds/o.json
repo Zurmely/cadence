@@ -1,0 +1,5 @@
+[
+  { "id": "omeprazole", "en": "Omeprazole", "pt": "Omeprazol", "strengths": ["20 mg", "40 mg"], "forms": ["capsule"] },
+  { "id": "ondansetron", "en": "Ondansetron", "pt": "Ondansetrona", "strengths": ["4 mg", "8 mg"], "forms": ["tablet", "injection"] },
+  { "id": "oseltamivir", "en": "Oseltamivir", "pt": "Oseltamivir", "strengths": ["75 mg"], "forms": ["capsule"] }
+]

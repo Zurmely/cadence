@@ -2,13 +2,20 @@
 import '../styles/global.css';
 import { Footer } from '../components/layout/Footer';
 import { Nav } from '../components/layout/Nav';
+import { EmergencyHeader } from '../components/emergency/EmergencyHeader';
 
 interface Props {
   title?: string;
   description?: string;
+  /** Emergency view: minimal header, no footer, nothing to distract a first responder. */
+  minimalChrome?: boolean;
 }
 
-const { title = 'Cadence', description = 'Local-first medical ID' } = Astro.props;
+const {
+  title = 'Cadence',
+  description = 'Local-first medical ID',
+  minimalChrome = false,
+} = Astro.props;
 const path = Astro.url.pathname;
 ---
 
@@ -32,10 +39,14 @@ const path = Astro.url.pathname;
     </script>
   </head>
   <body class="flex min-h-screen flex-col">
-    <Nav client:load currentPath={path} />
+    {minimalChrome ? (
+      <EmergencyHeader client:load />
+    ) : (
+      <Nav client:load currentPath={path} />
+    )}
     <main id="main" class="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:py-8">
       <slot />
     </main>
-    <Footer client:load />
+    {minimalChrome ? null : <Footer client:load />}
   </body>
 </html>

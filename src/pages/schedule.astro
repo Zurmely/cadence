@@ -1,8 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { ScheduleShell } from '../components/schedule/ScheduleShell';
+import AdSlotLayout from '../components/ads/AdSlotLayout.astro';
+import { SponsorSlot } from '../components/ads/SponsorSlot';
 ---
 
 <Layout title="Cadence — Schedule" description="Daily medication timetable.">
-  <ScheduleShell client:load />
+  <AdSlotLayout>
+    <ScheduleShell client:load />
+    <SponsorSlot client:load slot="sidebar" variant="sidebar" />
+  </AdSlotLayout>
 </Layout>

@@ -1,6 +1,7 @@
 import { t } from '../../lib/i18n';
 import { useLocale } from '../../lib/i18n/useLocale';
 import { useProfile } from '../../lib/profile/useProfile';
+import { DownloadButtons } from '../pdf/DownloadButtons';
 
 export function PrintShell() {
   const [locale] = useLocale();
@@ -28,14 +29,14 @@ export function PrintShell() {
         </section>
       </div>
 
+      <DownloadButtons profile={profile} locale={locale} />
+
       <a
         href="/emergency"
         className="inline-flex min-h-11 w-fit items-center rounded-md bg-cadence-primary px-4 font-semibold text-cadence-primary-contrast"
       >
         {t(locale, 'print.openEmergency')}
       </a>
-
-      <p className="text-cadence-muted">{t(locale, 'print.placeholder')}</p>
     </div>
   );
 }

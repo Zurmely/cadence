@@ -1,8 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { ProfileEditor } from '../components/profile/ProfileEditor';
+import AdSlotLayout from '../components/ads/AdSlotLayout.astro';
+import { SponsorSlot } from '../components/ads/SponsorSlot';
 ---
 
 <Layout title="Cadence — Profile" description="Edit your local-first medical ID.">
-  <ProfileEditor client:load />
+  <AdSlotLayout>
+    <ProfileEditor client:load />
+    <!-- Ads: mobile sponsor card, hidden on desktop where the sidebar slot shows instead -->
+    <SponsorSlot client:load variant="inline" className="lg:hidden" />
+    <SponsorSlot client:load slot="sidebar" variant="sidebar" />
+  </AdSlotLayout>
 </Layout>
