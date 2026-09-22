@@ -1,29 +1,42 @@
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/inter';
 @import 'tailwindcss';
 
 /*
-  Cadence design tokens — medical-grade, high-contrast, large-type baseline.
-  Extension point: parallel components should reuse these CSS variables and
-  the `text-base` (18px) default rather than introducing new type scales.
+  Cadence visual system.
+
+  Direction: a well-set paper health record, not a dashboard. Warm paper
+  background, near-black ink, a deep clinical green as the single accent,
+  serif display type (Fraunces) over a humanist sans (Inter). Structure
+  comes from hairline rules and numbering rather than stacked tinted boxes.
+
+  Accessibility floor is unchanged: 18px base, WCAG AA everywhere, AAA on
+  /emergency, focus rings always visible, icons never carry meaning alone.
 */
 @theme {
-  --font-sans:
-    'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Fraunces Variable', 'Fraunces', 'Iowan Old Style', Georgia, serif;
 
-  --color-cadence-bg: #f7f8fa;
-  --color-cadence-surface: #ffffff;
-  --color-cadence-border: #cbd2d9;
-  --color-cadence-text: #10151a;
-  --color-cadence-muted: #4b5563;
+  --color-cadence-bg: #f5f1ea;
+  --color-cadence-surface: #fdfbf7;
+  --color-cadence-surface-alt: #f2ede4;
+  --color-cadence-border: #a89f92;
+  --color-cadence-border-soft: #ddd5c8;
+  --color-cadence-text: #1b1917;
+  --color-cadence-muted: #5b554d;
 
-  --color-cadence-primary: #0b5fa8;
-  --color-cadence-primary-dark: #063f70;
-  --color-cadence-primary-contrast: #ffffff;
+  --color-cadence-primary: #0f5f52;
+  --color-cadence-primary-dark: #093f36;
+  --color-cadence-primary-soft: #e1ede8;
+  --color-cadence-primary-contrast: #fdfbf7;
 
-  --color-cadence-danger: #b3261e;
-  --color-cadence-danger-contrast: #ffffff;
+  --color-cadence-danger: #a8321e;
+  --color-cadence-danger-soft: #f6e4de;
+  --color-cadence-danger-contrast: #fdfbf7;
 
-  --color-cadence-success: #146c43;
-  --color-cadence-warning: #9a6700;
+  --color-cadence-success: #0f5f52;
+  --color-cadence-success-soft: #e1ede8;
+  --color-cadence-warning: #8a5a00;
 
   --text-base: 18px;
 }
@@ -31,6 +44,7 @@
 @layer base {
   html {
     color-scheme: light;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -40,27 +54,213 @@
     font-size: var(--text-base);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'cv11', 'ss01';
   }
 
   :focus-visible {
     outline: 3px solid var(--color-cadence-primary);
-    outline-offset: 2px;
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 
   h1,
   h2,
   h3 {
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-wrap: balance;
+    font-variation-settings: 'opsz' 96, 'SOFT' 30, 'WONK' 0;
+  }
+
+  h1 {
+    font-weight: 400;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+  }
+
+  ::selection {
+    background: var(--color-cadence-primary);
+    color: var(--color-cadence-primary-contrast);
   }
 }
 
 @layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* A sheet of paper: hairline ink border, no drop shadow. */
   .cadence-card {
     background-color: var(--color-cadence-surface);
-    border: 1px solid var(--color-cadence-border);
-    border-radius: 0.75rem;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
+    border: 1px solid var(--color-cadence-border-soft);
+    border-radius: 0.375rem;
+  }
+
+  /* A row inside a sheet: separated by rules, not nested boxes. */
+  .cadence-row {
+    border-top: 1px solid var(--color-cadence-border-soft);
+    padding-top: 1.25rem;
+  }
+
+  .cadence-row:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  /* Small-caps label: section numbers, template letters, statuses. */
+  .cadence-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-cadence-primary);
+  }
+
+  .cadence-rule {
+    border: 0;
+    border-top: 1px solid var(--color-cadence-border);
+  }
+
+  .cadence-input {
+    min-height: 2.875rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    border: 1.5px solid var(--color-cadence-border);
+    background-color: var(--color-cadence-surface);
+    padding-inline: 0.75rem;
+    color: var(--color-cadence-text);
+    transition:
+      border-color 120ms ease,
+      background-color 120ms ease;
+  }
+
+  .cadence-input::placeholder {
+    color: #7a746b;
+  }
+
+  .cadence-input:hover {
+    border-color: var(--color-cadence-text);
+  }
+
+  .cadence-input:focus-visible {
+    outline: none;
+    border-color: var(--color-cadence-primary);
+    box-shadow: 0 0 0 3px var(--color-cadence-primary-soft);
+    background-color: #ffffff;
+  }
+
+  .cadence-btn {
+    display: inline-flex;
+    min-height: 2.875rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1.5px solid transparent;
+    padding-inline: 1.125rem;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background-color 120ms ease,
+      border-color 120ms ease,
+      color 120ms ease,
+      transform 80ms ease;
+  }
+
+  .cadence-btn:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  .cadence-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  /* Ink button: the one "loud" action on a page. */
+  .cadence-btn-primary {
+    background-color: var(--color-cadence-text);
+    border-color: var(--color-cadence-text);
+    color: var(--color-cadence-surface);
+  }
+
+  .cadence-btn-primary:hover:not(:disabled) {
+    background-color: var(--color-cadence-primary-dark);
+    border-color: var(--color-cadence-primary-dark);
+  }
+
+  .cadence-btn-outline {
+    background-color: transparent;
+    border-color: var(--color-cadence-text);
+    color: var(--color-cadence-text);
+  }
+
+  .cadence-btn-outline:hover:not(:disabled) {
+    background-color: var(--color-cadence-text);
+    color: var(--color-cadence-surface);
+  }
+
+  .cadence-btn-danger {
+    background-color: transparent;
+    border-color: var(--color-cadence-danger);
+    color: var(--color-cadence-danger);
+  }
+
+  .cadence-btn-danger:hover:not(:disabled) {
+    background-color: var(--color-cadence-danger);
+    color: var(--color-cadence-danger-contrast);
+  }
+
+  .cadence-btn-ghost-danger {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 0.25rem;
+    padding-inline: 0.5rem;
+    font-weight: 600;
+    color: var(--color-cadence-danger);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+    text-decoration-color: transparent;
+    cursor: pointer;
+    transition: text-decoration-color 120ms ease;
+  }
+
+  .cadence-btn-ghost-danger:hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* Underline-on-hover link treatment shared by nav and inline links. */
+  .cadence-link {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 6px;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 120ms ease;
+  }
+
+  .cadence-link:hover,
+  .cadence-link[aria-current='page'] {
+    text-decoration-color: currentColor;
   }
 
   .cadence-skip-link {
@@ -68,18 +268,26 @@
     left: -999px;
     top: 0;
     z-index: 50;
-    background: var(--color-cadence-primary);
-    color: var(--color-cadence-primary-contrast);
+    background: var(--color-cadence-text);
+    color: var(--color-cadence-surface);
     padding: 0.5rem 1rem;
-    border-radius: 0 0 0.5rem 0;
+    border-radius: 0 0 0.25rem 0;
   }
 
   .cadence-skip-link:focus {
     left: 0;
   }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {

@@ -44,7 +44,7 @@ const path = Astro.url.pathname;
     ) : (
       <Nav client:load currentPath={path} />
     )}
-    <main id="main" class="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:py-8">
+    <main id="main" class="mx-auto w-full max-w-6xl flex-1 px-4 py-10 sm:py-14">
       <slot />
     </main>
     {minimalChrome ? null : <Footer client:load />}
