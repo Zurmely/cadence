@@ -146,7 +146,7 @@ export function MedicalCombobox({
         aria-describedby={hintId}
         autoComplete="off"
         spellCheck={false}
-        className="min-h-11 w-full rounded-md border-2 border-cadence-border bg-white px-3 text-cadence-text"
+        className="cadence-input"
         placeholder={placeholder}
         value={inputValue}
         onChange={(event) => {
@@ -171,7 +171,7 @@ export function MedicalCombobox({
           id={listboxId}
           role="listbox"
           aria-label={label}
-          className="absolute top-full z-10 mt-1 max-h-64 w-full overflow-auto rounded-md border-2 border-cadence-border bg-white shadow-lg"
+          className="absolute top-full z-10 mt-1 max-h-64 w-full overflow-auto rounded-lg border border-cadence-border bg-white shadow-[var(--shadow-cadence-raised)]"
         >
           {results.length === 0 ? (
             <li className="px-3 py-3 text-cadence-muted">

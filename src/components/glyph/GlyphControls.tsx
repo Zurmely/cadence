@@ -218,7 +218,7 @@ function ColorField({
           type="color"
           value={HEX_PATTERN.test(value) ? value : '#000000'}
           onChange={(event) => commit(event.target.value)}
-          className="size-11 rounded-md border-2 border-cadence-border p-0"
+          className="size-11 cursor-pointer rounded-lg border-2 border-cadence-border p-0"
           aria-label={t(locale, 'glyph.hexInputLabel')}
         />
         <input
@@ -229,7 +229,7 @@ function ColorField({
           onChange={(event) => commit(event.target.value)}
           aria-invalid={invalid}
           aria-describedby={invalid ? errorId : undefined}
-          className="min-h-11 w-32 rounded-md border-2 border-cadence-border bg-white px-3 font-mono"
+          className="cadence-input w-32 font-mono"
         />
       </div>
       {invalid ? (
