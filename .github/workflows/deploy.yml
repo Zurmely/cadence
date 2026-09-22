@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      pages_mode: ${{ steps.detect.outputs.mode }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,33 +40,54 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Ensure GitHub Pages uses Actions
+      - name: Detect GitHub Pages deployment mode
+        id: detect
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          set -euo pipefail
-          if gh api "/repos/${GITHUB_REPOSITORY}/pages" >/dev/null 2>&1; then
-            gh api --method PUT "/repos/${GITHUB_REPOSITORY}/pages" \
-              -f build_type=workflow \
-              -f cname=cadence.zurmely.com
+          if gh api "/repos/${GITHUB_REPOSITORY}/pages" 2>/dev/null | jq -e '.build_type == "workflow"' >/dev/null; then
+            echo "mode=actions" >> "$GITHUB_OUTPUT"
           else
-            gh api --method POST "/repos/${GITHUB_REPOSITORY}/pages" \
-              -f build_type=workflow
-            gh api --method PUT "/repos/${GITHUB_REPOSITORY}/pages" \
-              -f build_type=workflow \
-              -f cname=cadence.zurmely.com
+            echo "mode=legacy" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Ensure legacy GitHub Pages (gh-pages branch)
+        if: steps.detect.outputs.mode == 'legacy'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "/repos/${GITHUB_REPOSITORY}/pages" \
+            -f build_type=legacy \
+            -f source[branch]=gh-pages \
+            -f source[path]=/ 2>/dev/null || true
+          gh api --method PUT "/repos/${GITHUB_REPOSITORY}/pages" \
+            -f build_type=legacy \
+            -f source[branch]=gh-pages \
+            -f source[path]=/ \
+            -f cname=cadence.zurmely.com 2>/dev/null || true
+
       - name: Configure Pages
+        if: steps.detect.outputs.mode == 'actions'
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
+        if: steps.detect.outputs.mode == 'actions'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
+      - name: Publish to gh-pages branch
+        if: steps.detect.outputs.mode == 'legacy'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ github.token }}
+          publish_dir: ./dist
+          cname: cadence.zurmely.com
+
   deploy:
     needs: build
+    if: needs.build.outputs.pages_mode == 'actions'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
