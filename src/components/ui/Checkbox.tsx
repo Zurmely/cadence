@@ -19,7 +19,7 @@ export function Checkbox({ checked, onCheckedChange, id, label, srLabel }: Props
         checked={checked}
         onCheckedChange={(value) => onCheckedChange(value === true)}
         aria-label={srLabel ?? label}
-        className="flex size-8 shrink-0 items-center justify-center rounded-md border-2 border-cadence-text bg-white data-[state=checked]:bg-cadence-success data-[state=checked]:border-cadence-success"
+        className="flex size-8 shrink-0 items-center justify-center rounded-sm border-[1.5px] border-cadence-text bg-cadence-surface transition-colors hover:bg-cadence-surface-alt data-[state=checked]:border-cadence-primary data-[state=checked]:bg-cadence-primary"
       >
         <RadixCheckbox.Indicator>
           <Check className="size-6 text-white" aria-hidden="true" />
