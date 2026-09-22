@@ -38,10 +38,25 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Ensure GitHub Pages uses Actions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh api "/repos/${GITHUB_REPOSITORY}/pages" >/dev/null 2>&1; then
+            gh api --method PUT "/repos/${GITHUB_REPOSITORY}/pages" \
+              -f build_type=workflow \
+              -f cname=cadence.zurmely.com
+          else
+            gh api --method POST "/repos/${GITHUB_REPOSITORY}/pages" \
+              -f build_type=workflow
+            gh api --method PUT "/repos/${GITHUB_REPOSITORY}/pages" \
+              -f build_type=workflow \
+              -f cname=cadence.zurmely.com
+          fi
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
