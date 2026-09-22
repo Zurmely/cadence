@@ -44,7 +44,7 @@ function QrCodeSvg({ value, label, size = 208 }: { value: string; label: string;
       height={size}
       role="img"
       aria-label={label}
-      className="rounded-md border-2 border-cadence-border bg-white p-2"
+      className="rounded-xl border border-cadence-border bg-white p-3 shadow-[var(--shadow-cadence-card)]"
     >
       <rect width={cellPath.count} height={cellPath.count} fill="#ffffff" />
       <path d={cellPath.path} fill="#000000" shapeRendering="crispEdges" />
@@ -117,12 +117,12 @@ export function QrShare({ profile, path = '/emergency', className }: Props) {
           }
         />
         <div className="flex flex-1 flex-col gap-2">
-          <p className="break-all rounded-md border-2 border-cadence-border bg-cadence-bg px-3 py-2 text-sm text-cadence-muted">
+          <p className="break-all rounded-lg border border-cadence-border-soft bg-cadence-surface-alt px-3 py-2 text-sm text-cadence-muted">
             {url || t(locale, 'share.linkPending')}
           </p>
           <button
             type="button"
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-cadence-primary px-4 font-semibold text-cadence-primary-contrast disabled:opacity-60"
+            className="cadence-btn cadence-btn-primary"
             onClick={copyLink}
             disabled={!url}
           >
@@ -138,7 +138,7 @@ export function QrShare({ profile, path = '/emergency', className }: Props) {
       <Dialog.Root open={confirmOpen} onOpenChange={setConfirmOpen}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black/60" />
-          <Dialog.Content className="fixed left-1/2 top-1/2 w-[min(92vw,32rem)] -translate-x-1/2 -translate-y-1/2 rounded-lg border-2 border-cadence-danger bg-white p-6 shadow-lg">
+          <Dialog.Content className="fixed left-1/2 top-1/2 w-[min(92vw,32rem)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border-2 border-cadence-danger bg-white p-6 shadow-[var(--shadow-cadence-raised)]">
             <div className="flex items-start justify-between gap-3">
               <Dialog.Title className="flex items-center gap-2 text-2xl font-bold text-cadence-text">
                 <AlertTriangle className="size-6 text-cadence-danger" aria-hidden="true" />
@@ -155,12 +155,12 @@ export function QrShare({ profile, path = '/emergency', className }: Props) {
               {t(locale, 'share.confirmFullBody')}
             </Dialog.Description>
             <div className="mt-6 flex flex-wrap justify-end gap-3">
-              <Dialog.Close className="min-h-11 rounded-md border-2 border-cadence-border px-4 font-semibold text-cadence-text">
+              <Dialog.Close className="cadence-btn border-cadence-border text-cadence-text hover:bg-cadence-surface-alt">
                 {t(locale, 'share.confirmCancel')}
               </Dialog.Close>
               <button
                 type="button"
-                className="inline-flex min-h-11 items-center gap-2 rounded-md bg-cadence-danger px-4 font-semibold text-cadence-danger-contrast"
+                className="cadence-btn border-cadence-danger bg-cadence-danger text-cadence-danger-contrast hover:bg-[#8f1e18]"
                 onClick={confirmFull}
               >
                 <Check className="size-5" aria-hidden="true" />
