@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
-import { Flame } from 'lucide-react';
+import { Flame, Moon, Sun, Sunrise, Sunset, UserRound } from 'lucide-react';
+import type { ComponentType, SVGProps } from 'react';
 import { SCHEDULE_SLOTS, type Profile, type ScheduleSlot } from '../../lib/profile';
 import { useProfile } from '../../lib/profile/useProfile';
 import { t, type MessageKey } from '../../lib/i18n';
@@ -8,6 +9,13 @@ import { MedicationGlyph } from '../glyph/MedicationGlyph';
 import { SponsorSlot } from '../ads/SponsorSlot';
 import { Checkbox } from '../ui/Checkbox';
 import { expectedKeysForProfile, useCompliance } from '../../lib/schedule';
+
+const SLOT_ICONS: Record<ScheduleSlot, ComponentType<SVGProps<SVGSVGElement>>> = {
+  morning: Sunrise,
+  afternoon: Sun,
+  evening: Sunset,
+  bedtime: Moon,
+};
 
 const SLOT_KEYS: Record<ScheduleSlot, MessageKey> = {
   morning: 'profile.slotMorning',
@@ -30,56 +38,75 @@ export function ScheduleShell() {
   const { isChecked, toggle, summary, streak } = useCompliance(expected);
 
   const complete = summary.total > 0 && summary.checked === summary.total;
+  const percent = summary.total > 0 ? Math.round((summary.checked / summary.total) * 100) : 0;
 
   return (
     <div className="flex flex-col gap-6">
-      <header>
-        <h1 className="text-3xl sm:text-4xl">{t(locale, 'schedule.title')}</h1>
-        <p className="mt-2 max-w-3xl text-cadence-muted">{t(locale, 'schedule.lead')}</p>
+      <header className="flex flex-col gap-3 border-b border-cadence-border pb-6">
+        <h1 className="text-4xl sm:text-6xl">{t(locale, 'schedule.title')}</h1>
+        <p className="max-w-2xl text-xl text-cadence-muted">{t(locale, 'schedule.lead')}</p>
       </header>
 
       {/* Ads: mobile sponsor card, between the summary and the daily timetable. Desktop uses the sidebar slot instead. */}
       <SponsorSlot variant="inline" className="lg:hidden" />
 
       {!hasAnyMedication(profile) ? (
-        <div className="cadence-card p-6">
-          <p className="text-cadence-muted">{t(locale, 'schedule.empty')}</p>
-          <a
-            href="/"
-            className="mt-4 inline-flex min-h-11 items-center rounded-md bg-cadence-primary px-4 font-semibold text-cadence-primary-contrast"
-          >
+        <div className="cadence-card flex flex-col items-start gap-5 p-7 sm:p-10">
+          <p className="max-w-xl font-display text-2xl italic text-cadence-muted sm:text-3xl">
+            {t(locale, 'schedule.empty')}
+          </p>
+          <a href="/" className="cadence-btn cadence-btn-primary">
+            <UserRound className="size-5" aria-hidden="true" />
             {t(locale, 'schedule.openProfile')}
           </a>
         </div>
       ) : (
         <>
-          <div
-            className={`cadence-card flex flex-wrap items-center gap-4 border-l-8 p-4 sm:p-5 ${
-              complete ? 'border-l-cadence-success' : 'border-l-cadence-primary'
-            }`}
-            role="status"
-            aria-live="polite"
-          >
-            <p className="text-xl font-semibold">
-              {t(locale, 'schedule.summaryToday', {
-                checked: summary.checked,
-                total: summary.total,
-              })}
-            </p>
-            <p className="inline-flex items-center gap-2 text-xl font-semibold text-cadence-primary-dark">
-              <Flame className="size-6" aria-hidden="true" />
-              {t(locale, 'schedule.streak', { count: streak })}
-            </p>
+          <div className="cadence-card flex flex-col gap-4 p-5 sm:p-7" role="status" aria-live="polite">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <p className="font-display text-3xl sm:text-4xl">
+                {t(locale, 'schedule.summaryToday', {
+                  checked: summary.checked,
+                  total: summary.total,
+                })}
+              </p>
+              <p className="inline-flex items-center gap-2 font-semibold text-cadence-primary">
+                <Flame className="size-5" aria-hidden="true" />
+                {t(locale, 'schedule.streak', { count: streak })}
+              </p>
+            </div>
+            <div
+              className="h-1.5 w-full overflow-hidden rounded-full bg-cadence-border-soft"
+              role="progressbar"
+              aria-valuemin={0}
+              aria-valuemax={summary.total}
+              aria-valuenow={summary.checked}
+            >
+              <div
+                className={`h-full rounded-full transition-[width] duration-300 ${
+                  complete ? 'bg-cadence-success' : 'bg-cadence-primary'
+                }`}
+                style={{ width: `${percent}%` }}
+              />
+            </div>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-2">
             {SCHEDULE_SLOTS.map((slot) => {
               const meds = profile.medications.filter((med) => med.slots[slot]);
+              const SlotIcon = SLOT_ICONS[slot];
+              const slotDone = meds.length > 0 && meds.every((med) => isChecked(med.id, slot));
               return (
-                <section key={slot} className="cadence-card p-5">
-                  <h2 className="mb-3 text-2xl">{t(locale, SLOT_KEYS[slot])}</h2>
+                <section key={slot} className="cadence-card p-5 sm:p-6">
+                  <h2 className="mb-5 flex items-center justify-between gap-3 border-b border-cadence-border pb-3 text-2xl sm:text-3xl">
+                    {t(locale, SLOT_KEYS[slot])}
+                    <SlotIcon
+                      className={`size-6 shrink-0 ${slotDone ? 'text-cadence-primary' : 'text-cadence-muted'}`}
+                      aria-hidden="true"
+                    />
+                  </h2>
                   {meds.length === 0 ? (
-                    <p className="text-cadence-muted">{t(locale, 'emergency.none')}</p>
+                    <p className="font-display text-xl italic text-cadence-muted">{t(locale, 'emergency.none')}</p>
                   ) : (
                     <ul className="flex flex-col gap-4">
                       {meds.map((med) => {
@@ -91,8 +118,10 @@ export function ScheduleShell() {
                         return (
                           <li
                             key={med.id}
-                            className={`flex items-start gap-3 rounded-md border-2 p-3 ${
-                              checked ? 'border-cadence-success bg-cadence-success/5' : 'border-cadence-border'
+                            className={`flex items-start gap-4 rounded-sm border-l-4 py-3 pl-4 pr-1 transition-colors ${
+                              checked
+                                ? 'border-l-cadence-primary bg-cadence-primary-soft'
+                                : 'border-l-cadence-border-soft'
                             }`}
                           >
                             <MedicationGlyph {...med.glyph} size={36} />
@@ -122,7 +151,7 @@ export function ScheduleShell() {
         </>
       )}
 
-      <p className="text-cadence-muted">{t(locale, 'schedule.placeholder')}</p>
+      <p className="text-base text-cadence-muted">{t(locale, 'schedule.placeholder')}</p>
     </div>
   );
 }

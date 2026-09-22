@@ -31,12 +31,7 @@ function DownloadButton({
   onClick: () => void;
   variant?: 'primary' | 'secondary';
 }) {
-  const base =
-    'inline-flex min-h-11 items-center gap-2 rounded-md px-4 font-semibold disabled:cursor-not-allowed disabled:opacity-70';
-  const style =
-    variant === 'primary'
-      ? `${base} bg-cadence-primary text-cadence-primary-contrast`
-      : `${base} border-2 border-cadence-primary text-cadence-primary-dark`;
+  const style = variant === 'primary' ? 'cadence-btn cadence-btn-primary' : 'cadence-btn cadence-btn-outline';
 
   return (
     <button type="button" className={style} onClick={onClick} disabled={state === 'loading'}>
@@ -93,7 +88,7 @@ export function DownloadButtons({ profile, locale }: { profile: Profile; locale:
 
   return (
     <div className="grid gap-4 lg:grid-cols-2">
-      <section className="cadence-card p-5">
+      <section className="cadence-card p-6 sm:p-7">
         <h2 className="text-2xl">{t(locale, 'pdf.walletCard.heading')}</h2>
         <p className="mt-2 text-cadence-muted">{t(locale, 'pdf.walletCard.description')}</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -115,7 +110,7 @@ export function DownloadButtons({ profile, locale }: { profile: Profile; locale:
         ) : null}
       </section>
 
-      <section className="cadence-card p-5">
+      <section className="cadence-card p-6 sm:p-7">
         <h2 className="text-2xl">{t(locale, 'pdf.dailyIntake.heading')}</h2>
         <p className="mt-2 text-cadence-muted">{t(locale, 'pdf.dailyIntake.description')}</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
