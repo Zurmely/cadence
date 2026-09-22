@@ -6,14 +6,14 @@ export function LanguageToggle() {
   const [locale, setLocale] = useLocale();
 
   return (
-    <div className="flex items-center gap-2">
-      <Languages className="size-5 shrink-0" aria-hidden="true" />
+    <div className="flex shrink-0 items-center gap-2">
+      <Languages className="size-5 shrink-0 text-cadence-muted" aria-hidden="true" />
       <label htmlFor="cadence-language" className="sr-only">
         {t(locale, 'nav.language')}
       </label>
       <select
         id="cadence-language"
-        className="min-h-11 rounded-md border-2 border-cadence-border bg-cadence-surface px-2 py-1 font-semibold text-cadence-text"
+        className="cadence-input min-h-11 w-auto py-1 pr-8 font-semibold"
         value={locale}
         onChange={(event) => {
           const next = event.target.value;
