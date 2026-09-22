@@ -1,0 +1,12 @@
+[
+  { "code": "I10", "chapter": "IX", "en": "Essential (primary) hypertension", "pt": "Hipertensão essencial (primária)" },
+  { "code": "I20", "chapter": "IX", "en": "Angina pectoris", "pt": "Angina pectoris" },
+  { "code": "I21", "chapter": "IX", "en": "Acute myocardial infarction", "pt": "Infarto agudo do miocárdio" },
+  { "code": "I25", "chapter": "IX", "en": "Chronic ischaemic heart disease", "pt": "Doença isquêmica crônica do coração" },
+  { "code": "I48", "chapter": "IX", "en": "Atrial fibrillation and flutter", "pt": "Fibrilação e flutter atrial" },
+  { "code": "I50", "chapter": "IX", "en": "Heart failure", "pt": "Insuficiência cardíaca" },
+  { "code": "I63", "chapter": "IX", "en": "Cerebral infarction", "pt": "Infarto cerebral" },
+  { "code": "I64", "chapter": "IX", "en": "Stroke, not specified as haemorrhage or infarction", "pt": "Acidente vascular cerebral não especificado como hemorrágico ou isquêmico" },
+  { "code": "I80", "chapter": "IX", "en": "Phlebitis and thrombophlebitis", "pt": "Flebite e tromboflebite" },
+  { "code": "I83", "chapter": "IX", "en": "Varicose veins of lower extremities", "pt": "Varizes dos membros inferiores" }
+]

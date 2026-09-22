@@ -1,0 +1,9 @@
+[
+  { "id": "metformin", "en": "Metformin", "pt": "Metformina", "strengths": ["500 mg", "850 mg", "1 g"], "forms": ["tablet"] },
+  { "id": "metoprolol", "en": "Metoprolol", "pt": "Metoprolol", "strengths": ["25 mg", "50 mg", "100 mg"], "forms": ["tablet"] },
+  { "id": "metronidazole", "en": "Metronidazole", "pt": "Metronidazol", "strengths": ["250 mg", "400 mg"], "forms": ["tablet"] },
+  { "id": "methotrexate", "en": "Methotrexate", "pt": "Metotrexato", "strengths": ["2.5 mg"], "forms": ["tablet", "injection"] },
+  { "id": "metoclopramide", "en": "Metoclopramide", "pt": "Metoclopramida", "strengths": ["10 mg"], "forms": ["tablet", "oral drops"] },
+  { "id": "montelukast", "en": "Montelukast", "pt": "Montelucaste", "strengths": ["4 mg", "5 mg", "10 mg"], "forms": ["tablet", "chewable tablet"] },
+  { "id": "morphine", "en": "Morphine", "pt": "Morfina", "strengths": ["10 mg/mL"], "forms": ["injection", "oral solution"] }
+]

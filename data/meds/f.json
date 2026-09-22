@@ -1,0 +1,8 @@
+[
+  { "id": "ferrous-sulfate", "en": "Ferrous sulfate", "pt": "Sulfato ferroso", "strengths": ["40 mg elemental iron"], "forms": ["tablet", "oral drops"] },
+  { "id": "fluconazole", "en": "Fluconazole", "pt": "Fluconazol", "strengths": ["150 mg"], "forms": ["capsule"] },
+  { "id": "fluoxetine", "en": "Fluoxetine", "pt": "Fluoxetina", "strengths": ["20 mg"], "forms": ["capsule"] },
+  { "id": "folic-acid", "en": "Folic acid", "pt": "Ácido fólico", "strengths": ["5 mg"], "forms": ["tablet"] },
+  { "id": "furosemide", "en": "Furosemide", "pt": "Furosemida", "strengths": ["40 mg"], "forms": ["tablet", "injection"] },
+  { "id": "fluticasone", "en": "Fluticasone", "pt": "Fluticasona", "strengths": ["50 mcg/dose"], "forms": ["inhaler", "nasal spray"] }
+]

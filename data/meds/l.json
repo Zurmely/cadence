@@ -1,0 +1,9 @@
+[
+  { "id": "levothyroxine", "en": "Levothyroxine", "pt": "Levotiroxina", "strengths": ["25 mcg", "50 mcg", "75 mcg", "100 mcg"], "forms": ["tablet"] },
+  { "id": "levodopa-carbidopa", "en": "Levodopa + Carbidopa", "pt": "Levodopa + Carbidopa", "strengths": ["250/25 mg"], "forms": ["tablet"] },
+  { "id": "lithium-carbonate", "en": "Lithium carbonate", "pt": "Carbonato de lítio", "strengths": ["300 mg"], "forms": ["tablet"] },
+  { "id": "loperamide", "en": "Loperamide", "pt": "Loperamida", "strengths": ["2 mg"], "forms": ["capsule"] },
+  { "id": "loratadine", "en": "Loratadine", "pt": "Loratadina", "strengths": ["10 mg"], "forms": ["tablet", "syrup"] },
+  { "id": "lorazepam", "en": "Lorazepam", "pt": "Lorazepam", "strengths": ["1 mg", "2 mg"], "forms": ["tablet"] },
+  { "id": "losartan", "en": "Losartan", "pt": "Losartana", "strengths": ["25 mg", "50 mg", "100 mg"], "forms": ["tablet"] }
+]

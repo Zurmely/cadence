@@ -1,0 +1,11 @@
+[
+  { "code": "B01", "chapter": "I", "en": "Varicella [chickenpox]", "pt": "Varicela" },
+  { "code": "B05", "chapter": "I", "en": "Measles", "pt": "Sarampo" },
+  { "code": "B15", "chapter": "I", "en": "Acute hepatitis A", "pt": "Hepatite aguda A" },
+  { "code": "B16", "chapter": "I", "en": "Acute hepatitis B", "pt": "Hepatite aguda B" },
+  { "code": "B18", "chapter": "I", "en": "Chronic viral hepatitis", "pt": "Hepatite viral crônica" },
+  { "code": "B24", "chapter": "I", "en": "Unspecified human immunodeficiency virus [HIV] disease", "pt": "Doença pelo vírus da imunodeficiência humana [HIV] não especificada" },
+  { "code": "B34", "chapter": "I", "en": "Viral infection of unspecified site", "pt": "Infecção viral de localização não especificada" },
+  { "code": "B37", "chapter": "I", "en": "Candidiasis", "pt": "Candidíase" },
+  { "code": "B82", "chapter": "I", "en": "Intestinal parasitism, unspecified", "pt": "Parasitose intestinal não especificada" }
+]

@@ -1,0 +1,8 @@
+[
+  { "id": "diclofenac", "en": "Diclofenac", "pt": "Diclofenaco", "strengths": ["50 mg"], "forms": ["tablet", "gel"] },
+  { "id": "digoxin", "en": "Digoxin", "pt": "Digoxina", "strengths": ["0.25 mg"], "forms": ["tablet"] },
+  { "id": "diazepam", "en": "Diazepam", "pt": "Diazepam", "strengths": ["5 mg", "10 mg"], "forms": ["tablet"] },
+  { "id": "domperidone", "en": "Domperidone", "pt": "Domperidona", "strengths": ["10 mg"], "forms": ["tablet"] },
+  { "id": "doxycycline", "en": "Doxycycline", "pt": "Doxiciclina", "strengths": ["100 mg"], "forms": ["capsule"] },
+  { "id": "dexamethasone", "en": "Dexamethasone", "pt": "Dexametasona", "strengths": ["4 mg"], "forms": ["tablet", "injection"] }
+]

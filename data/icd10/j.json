@@ -1,0 +1,13 @@
+[
+  { "code": "J00", "chapter": "X", "en": "Acute nasopharyngitis [common cold]", "pt": "Nasofaringite aguda [resfriado comum]" },
+  { "code": "J01", "chapter": "X", "en": "Acute sinusitis", "pt": "Sinusite aguda" },
+  { "code": "J02", "chapter": "X", "en": "Acute pharyngitis", "pt": "Faringite aguda" },
+  { "code": "J03", "chapter": "X", "en": "Acute tonsillitis", "pt": "Tonsilite aguda" },
+  { "code": "J06", "chapter": "X", "en": "Acute upper respiratory infections of multiple and unspecified sites", "pt": "Infecções agudas das vias aéreas superiores de localizações múltiplas e não especificadas" },
+  { "code": "J11", "chapter": "X", "en": "Influenza, virus not identified", "pt": "Influenza [gripe], vírus não identificado" },
+  { "code": "J18", "chapter": "X", "en": "Pneumonia, organism unspecified", "pt": "Pneumonia por microorganismo não especificado" },
+  { "code": "J20", "chapter": "X", "en": "Acute bronchitis", "pt": "Bronquite aguda" },
+  { "code": "J44", "chapter": "X", "en": "Other chronic obstructive pulmonary disease", "pt": "Outras doenças pulmonares obstrutivas crônicas" },
+  { "code": "J45", "chapter": "X", "en": "Asthma", "pt": "Asma" },
+  { "code": "J46", "chapter": "X", "en": "Status asthmaticus", "pt": "Estado de mal asmático" }
+]

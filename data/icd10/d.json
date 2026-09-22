@@ -1,0 +1,7 @@
+[
+  { "code": "D12", "chapter": "II", "en": "Benign neoplasm of colon, rectum, anal canal and anus", "pt": "Neoplasia benigna do cólon, reto, canal anal e ânus" },
+  { "code": "D17", "chapter": "II", "en": "Benign lipomatous neoplasm", "pt": "Neoplasia benigna lipomatosa" },
+  { "code": "D50", "chapter": "III", "en": "Iron deficiency anaemia", "pt": "Anemia por deficiência de ferro" },
+  { "code": "D64", "chapter": "III", "en": "Other anaemias", "pt": "Outras anemias" },
+  { "code": "D69", "chapter": "III", "en": "Purpura and other haemorrhagic conditions", "pt": "Púrpura e outras afecções hemorrágicas" }
+]

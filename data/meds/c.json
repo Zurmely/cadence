@@ -1,0 +1,12 @@
+[
+  { "id": "cephalexin", "en": "Cephalexin", "pt": "Cefalexina", "strengths": ["500 mg"], "forms": ["capsule", "oral suspension"] },
+  { "id": "ciprofloxacin", "en": "Ciprofloxacin", "pt": "Ciprofloxacino", "strengths": ["500 mg"], "forms": ["tablet"] },
+  { "id": "clonazepam", "en": "Clonazepam", "pt": "Clonazepam", "strengths": ["0.5 mg", "2 mg"], "forms": ["tablet", "oral drops"] },
+  { "id": "clopidogrel", "en": "Clopidogrel", "pt": "Clopidogrel", "strengths": ["75 mg"], "forms": ["tablet"] },
+  { "id": "carbamazepine", "en": "Carbamazepine", "pt": "Carbamazepina", "strengths": ["200 mg", "400 mg"], "forms": ["tablet"] },
+  { "id": "calcium-carbonate", "en": "Calcium carbonate", "pt": "Carbonato de cálcio", "strengths": ["500 mg"], "forms": ["tablet"] },
+  { "id": "ceftriaxone", "en": "Ceftriaxone", "pt": "Ceftriaxona", "strengths": ["1 g"], "forms": ["injection"] },
+  { "id": "captopril", "en": "Captopril", "pt": "Captopril", "strengths": ["25 mg", "50 mg"], "forms": ["tablet"] },
+  { "id": "codeine", "en": "Codeine", "pt": "Codeína", "strengths": ["30 mg"], "forms": ["tablet"] },
+  { "id": "cetirizine", "en": "Cetirizine", "pt": "Cetirizina", "strengths": ["10 mg"], "forms": ["tablet", "oral drops"] }
+]

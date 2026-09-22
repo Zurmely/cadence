@@ -1,0 +1,6 @@
+[
+  { "id": "ibuprofen", "en": "Ibuprofen", "pt": "Ibuprofeno", "strengths": ["200 mg", "400 mg", "600 mg"], "forms": ["tablet", "oral suspension"] },
+  { "id": "insulin-glargine", "en": "Insulin glargine", "pt": "Insulina glargina", "strengths": ["100 U/mL"], "forms": ["pen", "vial"] },
+  { "id": "insulin-lispro", "en": "Insulin lispro", "pt": "Insulina lispro", "strengths": ["100 U/mL"], "forms": ["pen", "vial"] },
+  { "id": "insulin-nph", "en": "Insulin NPH", "pt": "Insulina NPH", "strengths": ["100 U/mL"], "forms": ["pen", "vial"] }
+]
